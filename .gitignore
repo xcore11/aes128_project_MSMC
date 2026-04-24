@@ -1,0 +1,38 @@
+# Quartus
+db/
+incremental_db/
+output_files/
+*.sof
+*.pof
+*.qws
+*.jdi
+*.smsg
+
+# Simulation
+transcript
+*.wlf
+*.vcd
+work/
+
+# Compiled
+*.elf
+*.bin
+*.hex
+*.o
+*.exe
+
+# Logs / temp
+*.log
+*.tmp
+*.bak
+*.swp
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets
+.env
+*.key
