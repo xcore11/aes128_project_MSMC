@@ -1,5 +1,4 @@
 `timescale 1ns/1ps
-`default_nettype none
 
 /*
  * ============================================================
@@ -60,5 +59,3 @@ module add_roundkey
     assign state_out = state_in ^ round_key;
 
 endmodule
-
-`default_nettype wire

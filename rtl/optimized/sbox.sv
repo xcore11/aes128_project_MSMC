@@ -1,58 +1,46 @@
 `timescale 1ns/1ps
-`default_nettype none
 
 /*
  * ============================================================
  * File        : sbox.sv
- * Description : AES-128 Boolean/GF logic S-box
+ * Description : AES-128 optimized Boolean logic S-box
  *
  * Function:
- *   Implements the AES S-box without using a lookup table.
+ *   Implements the AES S-box using optimized combinational
+ *   Boolean logic instead of a 256-entry lookup table.
  *
- * AES S-box operation:
- *   1. Take multiplicative inverse in GF(2^8).
- *   2. Apply AES affine transformation.
- *
- * Optimized design choice:`timescale 1ns/1ps
-`default_nettype none
-
-/*
- * ============================================================
- * File        : sbox.sv
- * Description : AES-128 Boolean/GF logic S-box
- *
- * Function:
- *   Implements the AES S-box without using a lookup table.
- *
- * AES S-box operation:
- *   The AES S-box is not just a simple substitution table.
- *   Mathematically, it performs two steps:
+ * AES S-box meaning:
+ *   The AES S-box mathematically performs:
  *
  *     1. Multiplicative inverse in GF(2^8)
- *     2. AES affine transformation
+ *     2. Affine transformation
  *
- *   Therefore:
- *
- *     out_byte = affine_transform(gf_inverse(in_byte))
+ *   This file does not explicitly calculate the inverse using
+ *   gf_mul or store the S-box table. Instead, it implements the
+ *   same input-output mapping using a minimized Boolean network.
  *
  * Optimized design choice:
- *   - The baseline design uses a 256-entry lookup table.
- *   - This optimized design computes the S-box output using
- *     combinational GF arithmetic and Boolean XOR logic.
- *   - This supports the chip-area reduction objective because
- *     it avoids storing all 256 S-box values.
+ *   - Baseline version:
+ *       Uses a lookup-table S-box.
+ *
+ *   - Earlier Boolean/GF version:
+ *       Computes GF inverse using gf_mul and exponentiation.
+ *       This is correct but can synthesize into large logic.
+ *
+ *   - This version:
+ *       Uses minimized XOR, AND, and NOT Boolean logic.
+ *       This is more suitable for low-area synthesis because the
+ *       repeated intermediate terms are shared.
  *
  * Important:
- *   - The module name and ports are kept the same as the baseline
- *     lookup-table S-box.
- *   - This allows sub_bytes and key_expansion to reuse the same
- *     S-box interface without changing their port connections.
+ *   - Module name and ports are kept the same as your previous
+ *     sbox module.
+ *   - This means aes_core_optimized can continue instantiating
+ *     sbox without changing its port connections.
  *
- * Notes:
- *   - In GF(2^8), 8'h00 has no multiplicative inverse.
- *   - AES defines inverse(00) as 00.
- *   - After the affine transformation, 00 maps to 63.
- *   - Therefore, AES S-box[00] = 8'h63.
+ * Verification:
+ *   - Test all 256 input values against the standard AES S-box
+ *     table before using this in the full AES core.
  * ============================================================
  */
 
@@ -66,246 +54,249 @@ module sbox
 );
 
     /*
-     * inv_byte stores the multiplicative inverse of in_byte in
-     * AES GF(2^8).
+     * Internal bit ordering.
      *
-     * Example:
-     *   If in_byte is non-zero, inv_byte = in_byte^(-1).
-     *   If in_byte is zero, inv_byte = 8'h00.
+     * This Boolean network uses [0:7] indexing internally.
+     * Do not change these declarations to [7:0] unless the whole
+     * Boolean network is remapped, because the equations depend on
+     * this bit order.
+     *
+     * With logic [0:7], assigning x = in_byte maps the external
+     * input byte into the internal bit order expected by this
+     * optimized S-box network.
      */
-    logic [7:0] inv_byte;
+    logic [0:7] x;
+    logic [0:7] s;
 
     /*
-     * Compute multiplicative inverse in GF(2^8).
+     * Intermediate signals.
      *
-     * This is the first mathematical step of the AES S-box.
+     * y:
+     *   Early linear pre-processing terms.
+     *   These are mostly XOR combinations of input bits.
+     *
+     * t:
+     *   Main intermediate network.
+     *   This includes both linear XOR terms and nonlinear AND terms.
+     *
+     * z:
+     *   Later nonlinear intermediate terms.
+     *   These are mainly AND combinations used before the final
+     *   output XOR network.
+     *
+     * These intermediate signals allow repeated expressions to be
+     * shared instead of recalculated many times.
      */
-    assign inv_byte = gf_inverse(in_byte);
+    logic [21:1] y;
+    logic [67:0] t;
+    logic [17:0] z;
 
     /*
+     * Map external input byte into the internal bit vector.
+     *
+     * The Boolean equations below operate on x[0] to x[7].
+     */
+    assign x = in_byte;
+
+    /*
+     * ========================================================
+     * Stage 1: Linear pre-processing
+     *
+     * This section creates useful XOR combinations from the input
+     * bits. These y and early t values are shared by later parts of
+     * the S-box circuit.
+     *
+     * This stage is called "linear" because XOR-only logic is
+     * linear over GF(2).
+     * ========================================================
+     */
+
+    assign y[14] = x[3] ^ x[5];
+    assign y[13] = x[0] ^ x[6];
+    assign y[9]  = x[0] ^ x[3];
+    assign y[8]  = x[0] ^ x[5];
+
+    assign t[0]  = x[1] ^ x[2];
+    assign y[1]  = t[0] ^ x[7];
+    assign y[4]  = y[1] ^ x[3];
+    assign y[12] = y[13] ^ y[14];
+    assign y[2]  = y[1] ^ x[0];
+    assign y[5]  = y[1] ^ x[6];
+    assign y[3]  = y[5] ^ y[8];
+
+    assign t[1]  = x[4] ^ y[12];
+    assign y[15] = t[1] ^ x[5];
+    assign y[20] = t[1] ^ x[1];
+    assign y[6]  = y[15] ^ x[7];
+    assign y[10] = y[15] ^ t[0];
+    assign y[11] = y[20] ^ y[9];
+    assign y[7]  = x[7] ^ y[11];
+    assign y[17] = y[10] ^ y[11];
+    assign y[19] = y[10] ^ y[8];
+    assign y[16] = t[0] ^ y[11];
+    assign y[21] = y[13] ^ y[16];
+    assign y[18] = x[0] ^ y[16];
+
+    /*
+     * ========================================================
+     * Stage 2: Nonlinear core
+     *
+     * The AES S-box is nonlinear, so XOR-only logic is not enough.
+     * The AND gates in this section provide the nonlinear behaviour.
+     *
+     * These equations implement the main minimized nonlinear part
+     * of the AES S-box Boolean network.
+     * ========================================================
+     */
+
+    assign t[2]  = y[12] & y[15];
+    assign t[3]  = y[3] & y[6];
+    assign t[4]  = t[3] ^ t[2];
+    assign t[5]  = y[4] & x[7];
+    assign t[6]  = t[5] ^ t[2];
+    assign t[7]  = y[13] & y[16];
+    assign t[8]  = y[5] & y[1];
+    assign t[9]  = t[8] ^ t[7];
+    assign t[10] = y[2] & y[7];
+    assign t[11] = t[10] ^ t[7];
+    assign t[12] = y[9] & y[11];
+    assign t[13] = y[14] & y[17];
+    assign t[14] = t[13] ^ t[12];
+    assign t[15] = y[8] & y[10];
+    assign t[16] = t[15] ^ t[12];
+
+    /*
+     * Combine nonlinear terms into the middle representation used
+     * by the optimized S-box network.
+     */
+    assign t[17] = t[4] ^ t[14];
+    assign t[18] = t[6] ^ t[16];
+    assign t[19] = t[9] ^ t[14];
+    assign t[20] = t[11] ^ t[16];
+
+    /*
+     * Further mixing of the nonlinear core with selected linear
+     * terms. These signals prepare the circuit for the compact
+     * inverse/affine-equivalent output stage.
+     */
+    assign t[21] = t[17] ^ y[20];
+    assign t[22] = t[18] ^ y[19];
+    assign t[23] = t[19] ^ y[21];
+    assign t[24] = t[20] ^ y[18];
+
+    /*
+     * Compact nonlinear reduction network.
+     *
+     * This section continues the minimized Boolean transformation.
+     * It is part of the optimized circuit that replaces the direct
+     * GF inverse calculation.
+     */
+    assign t[25] = t[21] ^ t[22];
+    assign t[26] = t[21] & t[23];
+    assign t[27] = t[24] ^ t[26];
+    assign t[28] = t[25] & t[27];
+    assign t[29] = t[28] ^ t[22];
+    assign t[30] = t[23] ^ t[24];
+    assign t[31] = t[22] ^ t[26];
+    assign t[32] = t[31] & t[30];
+    assign t[33] = t[32] ^ t[24];
+    assign t[34] = t[23] ^ t[33];
+    assign t[35] = t[27] ^ t[33];
+    assign t[36] = t[24] & t[35];
+    assign t[37] = t[36] ^ t[34];
+    assign t[38] = t[27] ^ t[36];
+    assign t[39] = t[29] & t[38];
+    assign t[40] = t[25] ^ t[39];
+    assign t[41] = t[40] ^ t[37];
+    assign t[42] = t[29] ^ t[33];
+    assign t[43] = t[29] ^ t[40];
+    assign t[44] = t[33] ^ t[37];
+    assign t[45] = t[42] ^ t[41];
+
+    /*
+     * ========================================================
+     * Stage 3: Post-nonlinear AND layer
+     *
+     * The z signals combine the reduced nonlinear values with
+     * earlier linear terms. These form the inputs to the final
+     * output XOR network.
+     * ========================================================
+     */
+
+    assign z[0]  = t[44] & y[15];
+    assign z[1]  = t[37] & y[6];
+    assign z[2]  = t[33] & x[7];
+    assign z[3]  = t[43] & y[16];
+    assign z[4]  = t[40] & y[1];
+    assign z[5]  = t[29] & y[7];
+    assign z[6]  = t[42] & y[11];
+    assign z[7]  = t[45] & y[17];
+    assign z[8]  = t[41] & y[10];
+    assign z[9]  = t[44] & y[12];
+    assign z[10] = t[37] & y[3];
+    assign z[11] = t[33] & y[4];
+    assign z[12] = t[43] & y[13];
+    assign z[13] = t[40] & y[5];
+    assign z[14] = t[29] & y[2];
+    assign z[15] = t[42] & y[9];
+    assign z[16] = t[45] & y[14];
+    assign z[17] = t[41] & y[8];
+
+    /*
+     * ========================================================
+     * Stage 4: Final linear output network
+     *
+     * This stage uses XOR and NOT logic to produce the final
+     * AES S-box output bits.
+     *
+     * The NOT operations are part of the constant addition in the
      * AES affine transformation.
-     *
-     * This is the second mathematical step of the AES S-box.
-     *
-     * Each output bit is generated by XORing selected bits of
-     * inv_byte and then XORing with one bit of the AES affine
-     * constant 8'h63.
-     *
-     * AES affine constant:
-     *   8'h63 = 0110_0011
-     *
-     * Bit ordering:
-     *   inv_byte[0] is the least significant bit.
-     *   out_byte[0] is the least significant bit.
-     *
-     * These equations implement:
-     *
-     *   b'[i] = b[i] XOR b[(i+4) mod 8] XOR b[(i+5) mod 8]
-     *           XOR b[(i+6) mod 8] XOR b[(i+7) mod 8] XOR c[i]
-     *
-     * where:
-     *   b  = inv_byte
-     *   b' = out_byte
-     *   c  = 8'h63
+     * ========================================================
      */
-    always_comb begin
-        out_byte[0] = inv_byte[0] ^ inv_byte[4] ^ inv_byte[5] ^ inv_byte[6] ^ inv_byte[7] ^ 1'b1;
-        out_byte[1] = inv_byte[1] ^ inv_byte[5] ^ inv_byte[6] ^ inv_byte[7] ^ inv_byte[0] ^ 1'b1;
-        out_byte[2] = inv_byte[2] ^ inv_byte[6] ^ inv_byte[7] ^ inv_byte[0] ^ inv_byte[1] ^ 1'b0;
-        out_byte[3] = inv_byte[3] ^ inv_byte[7] ^ inv_byte[0] ^ inv_byte[1] ^ inv_byte[2] ^ 1'b0;
-        out_byte[4] = inv_byte[4] ^ inv_byte[0] ^ inv_byte[1] ^ inv_byte[2] ^ inv_byte[3] ^ 1'b0;
-        out_byte[5] = inv_byte[5] ^ inv_byte[1] ^ inv_byte[2] ^ inv_byte[3] ^ inv_byte[4] ^ 1'b1;
-        out_byte[6] = inv_byte[6] ^ inv_byte[2] ^ inv_byte[3] ^ inv_byte[4] ^ inv_byte[5] ^ 1'b1;
-        out_byte[7] = inv_byte[7] ^ inv_byte[3] ^ inv_byte[4] ^ inv_byte[5] ^ inv_byte[6] ^ 1'b0;
-    end
+
+    assign t[46] = z[15] ^ z[16];
+    assign t[47] = z[10] ^ z[11];
+    assign t[48] = z[5] ^ z[13];
+    assign t[49] = z[9] ^ z[10];
+    assign t[50] = z[2] ^ z[12];
+    assign t[51] = z[2] ^ z[5];
+    assign t[52] = z[7] ^ z[8];
+    assign t[53] = z[0] ^ z[3];
+    assign t[54] = z[6] ^ z[7];
+    assign t[55] = z[16] ^ z[17];
+    assign t[56] = z[12] ^ t[48];
+    assign t[57] = t[50] ^ t[53];
+    assign t[58] = z[4] ^ t[46];
+    assign t[59] = z[3] ^ t[54];
+    assign t[60] = t[46] ^ t[57];
+    assign t[61] = z[14] ^ t[57];
+    assign t[62] = t[52] ^ t[58];
+    assign t[63] = t[49] ^ t[58];
+    assign t[64] = z[4] ^ t[59];
+    assign t[65] = t[61] ^ t[62];
+    assign t[66] = z[1] ^ t[63];
 
     /*
-     * ========================================================
-     * Function    : gf_inverse
-     * Description : Multiplicative inverse in AES GF(2^8)
+     * Final S-box output bit equations.
      *
-     * Function:
-     *   Calculates a^-1 in AES GF(2^8).
-     *
-     * AES finite field:
-     *   GF(2^8) using irreducible polynomial:
-     *
-     *     x^8 + x^4 + x^3 + x + 1
-     *
-     * Reduction constant:
-     *   8'h1b
-     *
-     * Method:
-     *   In GF(2^8), every non-zero element satisfies:
-     *
-     *     a^255 = 1
-     *
-     *   Therefore:
-     *
-     *     a^-1 = a^254
-     *
-     *   This function computes a^254 using repeated squaring and
-     *   multiplication.
-     *
-     * Exponentiation chain:
-     *   a2   = a^2
-     *   a4   = a^4
-     *   a8   = a^8
-     *   a16  = a^16
-     *   a32  = a^32
-     *   a64  = a^64
-     *   a128 = a^128
-     *
-     *   a254 = a128 * a64 * a32 * a16 * a8 * a4 * a2
-     *
-     * Special case:
-     *   AES defines inverse(00) = 00.
-     * ========================================================
+     * s[0] to s[7] are the final substituted byte bits.
      */
-    function automatic logic [7:0] gf_inverse
-    (
-        input logic [7:0] a
-    );
-        logic [7:0] a2;
-        logic [7:0] a4;
-        logic [7:0] a8;
-        logic [7:0] a16;
-        logic [7:0] a32;
-        logic [7:0] a64;
-        logic [7:0] a128;
-
-        logic [7:0] result;
-
-        begin
-            /*
-             * AES special case:
-             * 0 has no inverse, so inverse(0) is defined as 0.
-             */
-            if (a == 8'h00) begin
-                gf_inverse = 8'h00;
-            end
-
-            else begin
-                /*
-                 * Repeated squaring:
-                 *
-                 * Each line squares the previous result in GF(2^8).
-                 */
-                a2   = gf_mul(a,    a);
-                a4   = gf_mul(a2,   a2);
-                a8   = gf_mul(a4,   a4);
-                a16  = gf_mul(a8,   a8);
-                a32  = gf_mul(a16,  a16);
-                a64  = gf_mul(a32,  a32);
-                a128 = gf_mul(a64,  a64);
-
-                /*
-                 * Multiply selected powers together to produce a^254.
-                 */
-                result = gf_mul(a128, a64);
-                result = gf_mul(result, a32);
-                result = gf_mul(result, a16);
-                result = gf_mul(result, a8);
-                result = gf_mul(result, a4);
-                result = gf_mul(result, a2);
-
-                gf_inverse = result;
-            end
-        end
-    endfunction
+    assign s[0]  = t[59] ^ t[63];
+    assign s[6]  = ~t[56] ^ t[62];
+    assign s[7]  = ~t[48] ^ t[60];
+    assign t[67] = t[64] ^ t[65];
+    assign s[3]  = t[53] ^ t[66];
+    assign s[4]  = t[51] ^ t[66];
+    assign s[5]  = t[47] ^ t[65];
+    assign s[1]  = ~t[64] ^ s[3];
+    assign s[2]  = ~t[55] ^ t[67];
 
     /*
-     * ========================================================
-     * Function    : gf_mul
-     * Description : Multiplication in AES GF(2^8)
+     * Map internal S-box result to external output byte.
      *
-     * Function:
-     *   Multiplies two 8-bit values in the AES finite field.
-     *
-     * Method:
-     *   Uses shift-and-XOR multiplication.
-     *
-     * Operation:
-     *   - If the current multiplier bit is 1, XOR the current
-     *     multiplicand into the product.
-     *   - Shift the multiplicand left by one bit.
-     *   - If the shift overflows beyond bit 7, reduce using
-     *     the AES reduction constant 8'h1b.
-     *   - Shift the multiplier right by one bit.
-     *
-     * Reduction:
-     *   The constant 8'h1b represents reduction by the AES
-     *   irreducible polynomial:
-     *
-     *     x^8 + x^4 + x^3 + x + 1
-     *
-     * Hardware meaning:
-     *   This function synthesizes into combinational XOR, shift,
-     *   and mux logic.
-     * ========================================================
+     * Keep this assignment unchanged because the internal [0:7]
+     * ordering is part of this optimized S-box implementation.
      */
-    function automatic logic [7:0] gf_mul
-    (
-        input logic [7:0] a,
-        input logic [7:0] b
-    );
-        logic [7:0] multiplicand;
-        logic [7:0] multiplier;
-        logic [7:0] product;
-        logic       high_bit;
-        integer     i;
-
-        begin
-            /*
-             * Initialize local variables.
-             */
-            multiplicand = a;
-            multiplier   = b;
-            product      = 8'h00;
-
-            /*
-             * Process all 8 bits of the multiplier.
-             */
-            for (i = 0; i < 8; i = i + 1) begin
-
-                /*
-                 * If the current least significant multiplier bit is 1,
-                 * include the current multiplicand in the product.
-                 */
-                if (multiplier[0] == 1'b1) begin
-                    product = product ^ multiplicand;
-                end
-
-                /*
-                 * Save the MSB before shifting.
-                 *
-                 * If this bit is 1, the left shift would overflow the
-                 * 8-bit AES field and polynomial reduction is required.
-                 */
-                high_bit = multiplicand[7];
-
-                /*
-                 * Multiply multiplicand by x.
-                 */
-                multiplicand = multiplicand << 1;
-
-                /*
-                 * Apply AES polynomial reduction when overflow occurs.
-                 */
-                if (high_bit == 1'b1) begin
-                    multiplicand = multiplicand ^ 8'h1b;
-                end
-
-                /*
-                 * Move to the next multiplier bit.
-                 */
-                multiplier = multiplier >> 1;
-            end
-
-            gf_mul = product;
-        end
-    endfunction
+    assign out_byte = s;
 
 endmodule
-
-`default_nettype wire

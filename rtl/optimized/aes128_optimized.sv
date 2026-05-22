@@ -1,9 +1,8 @@
 `timescale 1ns/1ps
-`default_nettype none
 
 /*
  * ============================================================
- * File        : aes_top_optimized.sv
+ * File        : aes128_optimized.sv
  * Description : AES-128 optimized top-level wrapper
  *
  * Project     : ECE4063 IC Design Project
@@ -28,7 +27,7 @@
  * ============================================================
  */
 
-module aes_top_optimized
+module aes128_optimized
 (
     // System clock.
     input  logic         clk,
@@ -46,19 +45,19 @@ module aes_top_optimized
     input  logic [127:0] key,
 
     // 128-bit ciphertext output block.
-    output logic [127:0] ciphertext,
+    output reg   [127:0] ciphertext,
 
     // High while encryption is in progress.
-    output logic         busy,
+    output reg           busy,
 
     // One-clock pulse when ciphertext is valid.
-    output logic         done
+    output reg           done
 );
 
     /*
      * Optimized AES core instance.
      */
-    aes_core_optimized u_aes_core_optimized
+    aes_core u_aes_core
     (
         .clk        (clk),
         .reset_n    (reset_n),
@@ -71,5 +70,3 @@ module aes_top_optimized
     );
 
 endmodule
-
-`default_nettype wire

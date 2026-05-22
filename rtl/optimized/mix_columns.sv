@@ -1,5 +1,4 @@
 `timescale 1ns/1ps
-`default_nettype none
 
 /*
  * ============================================================
@@ -154,5 +153,3 @@ module mix_columns_one_column
     endfunction
 
 endmodule
-
-`default_nettype wire

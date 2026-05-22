@@ -1,5 +1,4 @@
 `timescale 1ns/1ps
-`default_nettype none
 
 /*
  * ============================================================
@@ -223,5 +222,3 @@ module keyexpansion
     assign key_out = {w4, w5, w6, w7};
 
 endmodule
-
-`default_nettype wire

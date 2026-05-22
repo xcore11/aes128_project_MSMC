@@ -1,9 +1,8 @@
 `timescale 1ns/1ps
-`default_nettype none
 
 /*
  * ============================================================
- * File        : aes_top_baseline.sv
+ * File        : aes128_baseline.sv
  * Description : AES-128 baseline top-level wrapper
  *
  * Project     : ECE4063 IC Design Project
@@ -49,7 +48,7 @@
  * ============================================================
  */
 
-module aes_top_baseline
+module aes128_baseline
 (
     // System clock.
     input  logic         clk,
@@ -90,7 +89,7 @@ module aes_top_baseline
      * This top-level wrapper only passes external signals into
      * the core and exposes the core outputs.
      */
-    aes_core_baseline u_aes_core_baseline
+    aes_core u_aes_core
     (
         .clk        (clk),
         .reset_n    (reset_n),
@@ -103,5 +102,3 @@ module aes_top_baseline
     );
 
 endmodule
-
-`default_nettype wire

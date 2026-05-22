@@ -1,5 +1,4 @@
 `timescale 1ns/1ps
-`default_nettype none
 
 /*
  * ============================================================
@@ -82,5 +81,3 @@ module sub_bytes
     endgenerate
 
 endmodule
-
-`default_nettype wire

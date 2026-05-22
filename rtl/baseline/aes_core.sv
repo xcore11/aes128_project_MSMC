@@ -1,9 +1,8 @@
 `timescale 1ns/1ps
-`default_nettype none
 
 /*
  * ============================================================
- * File        : aes_core_baseline.sv
+ * File        : aes_core.sv
  * Description : AES-128 baseline encryption core
  *
  * Project     : ECE4063 IC Design Project
@@ -56,7 +55,7 @@
  * ============================================================
  */
 
-module aes_core_baseline
+module aes_core
 (
     // System clock.
     input  logic         clk,
@@ -338,5 +337,3 @@ module aes_core_baseline
     endfunction
 
 endmodule
-
-`default_nettype wire
