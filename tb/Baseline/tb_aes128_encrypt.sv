@@ -303,7 +303,7 @@ module tb_aes128_encrypt;
 
         apply_reset();
 
-        vector_file = $fopen("test_vectors.txt", "r");
+        vector_file = $fopen("../../tb/test_vectors.txt", "r");
 
         if (vector_file == 0)
         begin

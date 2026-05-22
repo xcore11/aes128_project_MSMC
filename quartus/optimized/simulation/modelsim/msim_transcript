@@ -1,0 +1,103 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do aes_top_optimized_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/shift_rows.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:31 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/shift_rows.sv 
+# -- Compiling module shift_rows
+# 
+# Top level modules:
+# 	shift_rows
+# End time: 13:53:31 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/sbox.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:31 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/sbox.sv 
+# -- Compiling module sbox
+# 
+# Top level modules:
+# 	sbox
+# End time: 13:53:31 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/mix_columns.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:31 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/mix_columns.sv 
+# -- Compiling module mix_columns_one_column
+# 
+# Top level modules:
+# 	mix_columns_one_column
+# End time: 13:53:31 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/aes128_optimized.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:31 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/aes128_optimized.sv 
+# -- Compiling module aes128_optimized
+# 
+# Top level modules:
+# 	aes128_optimized
+# End time: 13:53:31 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/aes_core.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:31 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/aes_core.sv 
+# -- Compiling module aes_core
+# 
+# Top level modules:
+# 	aes_core
+# End time: 13:53:31 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized/tb_aes128_encrypt.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:31 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized/tb_aes128_encrypt.sv 
+# -- Compiling module tb_aes128_encrypt
+# 
+# Top level modules:
+# 	tb_aes128_encrypt
+# End time: 13:53:31 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  tb_aes128_encrypt
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" tb_aes128_encrypt 
+# Start time: 13:53:31 on May 22,2026
+# Loading sv_std.std
+# Loading work.tb_aes128_encrypt
+# Loading work.aes128_optimized
+# Loading work.aes_core
+# Loading work.sbox
+# Loading work.mix_columns_one_column
+# Loading work.shift_rows
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "../../tb/test_vectors.txt" for reading.
+# No such file or directory. (errno = ENOENT)    : C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized/tb_aes128_encrypt.sv(306)
+#    Time: 95 ns  Iteration: 1  Instance: /tb_aes128_encrypt
+# ERROR: Cannot open test_vectors.txt
+# Make sure test_vectors.txt is in the ModelSim simulation working directory.
+# Use 'pwd' in the ModelSim transcript to check the current directory.
+# ** Note: $finish    : C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized/tb_aes128_encrypt.sv(313)
+#    Time: 95 ns  Iteration: 1  Instance: /tb_aes128_encrypt
+# 1
+# Break in Module tb_aes128_encrypt at C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized/tb_aes128_encrypt.sv line 313
+# End time: 13:55:16 on May 22,2026, Elapsed time: 0:01:45
+# Errors: 0, Warnings: 1
