@@ -77,15 +77,24 @@ module tb_mix_columns_one_column;
         if (col_out === expected_column)
         begin
             pass_count = pass_count + 1;
-            $display("TEST %0d PASS: %s | %08h -> %08h", test_count, test_name, input_column, col_out);
+            $display("----------------------------------------------");
+            $display("TEST %0d: %s", test_count, test_name);
+            $display("Operation = MixColumns One 32-bit Column");
+            $display("COL_IN    = %08h", input_column);
+            $display("EXPECTED  = %08h", expected_column);
+            $display("GOT       = %08h", col_out);
+            $display("STATUS    = PASS");
         end
         else
         begin
             fail_count = fail_count + 1;
-            $display("TEST %0d FAIL: %s", test_count, test_name);
-            $display("INPUT    = %08h", input_column);
-            $display("EXPECTED = %08h", expected_column);
-            $display("GOT      = %08h", col_out);
+            $display("----------------------------------------------");
+            $display("TEST %0d: %s", test_count, test_name);
+            $display("Operation = MixColumns One 32-bit Column");
+            $display("COL_IN    = %08h", input_column);
+            $display("EXPECTED  = %08h", expected_column);
+            $display("GOT       = %08h", col_out);
+            $display("STATUS    = FAIL");
         end
     end
     endtask

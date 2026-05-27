@@ -252,6 +252,7 @@ module tb_aes128_encrypt;
         begin
             fail_count = fail_count + 1;
 
+            $display("----------------------------------------------");
             $display("TEST %0d FAIL: Timeout waiting for done signal", test_count);
             $display("KEY        = %032h", input_key);
             $display("PLAINTEXT  = %032h", input_plaintext);
@@ -269,17 +270,25 @@ module tb_aes128_encrypt;
         begin
             pass_count = pass_count + 1;
 
-            $display("TEST %0d PASS | cycles = %0d", test_count, cycle_count);
+            $display("----------------------------------------------");
+            $display("TEST %0d PASS: AES-128 encryption vector", test_count);
+            $display("KEY        = %032h", input_key);
+            $display("PLAINTEXT  = %032h", input_plaintext);
+            $display("EXPECTED   = %032h", input_expected_cipher);
+            $display("GOT        = %032h", ciphertext);
+            $display("CYCLES     = %0d", cycle_count);
         end
         else
         begin
             fail_count = fail_count + 1;
 
+            $display("----------------------------------------------");
             $display("TEST %0d FAIL: Ciphertext mismatch", test_count);
             $display("KEY        = %032h", input_key);
             $display("PLAINTEXT  = %032h", input_plaintext);
             $display("EXPECTED   = %032h", input_expected_cipher);
             $display("GOT        = %032h", ciphertext);
+            $display("CYCLES     = %0d", cycle_count);
         end
 
         /*

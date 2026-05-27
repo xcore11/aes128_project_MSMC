@@ -305,15 +305,21 @@ module tb_sbox;
             in_byte = i[7:0];
             #1;
 
+            $display("----------------------------------------------");
+            $display("TEST %0d: SBOX(%02h)", i + 1, i[7:0]);
+            $display("INPUT    = %02h", i[7:0]);
+            $display("EXPECTED = %02h", ref_sbox(i[7:0]));
+            $display("GOT      = %02h", out_byte);
+
             if (out_byte === ref_sbox(i[7:0]))
             begin
                 pass_count = pass_count + 1;
+                $display("STATUS   = PASS");
             end
             else
             begin
                 fail_count = fail_count + 1;
-                $display("FAIL: SBOX(%02h) expected %02h, got %02h",
-                         i[7:0], ref_sbox(i[7:0]), out_byte);
+                $display("STATUS   = FAIL");
             end
         end
 

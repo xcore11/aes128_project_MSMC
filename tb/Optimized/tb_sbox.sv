@@ -308,12 +308,24 @@ module tb_sbox;
             if (out_byte === ref_sbox(i[7:0]))
             begin
                 pass_count = pass_count + 1;
+                $display("----------------------------------------------");
+                $display("TEST %0d: sbox_input_%02h", i + 1, i[7:0]);
+                $display("Operation = AES S-box Byte Substitution");
+                $display("IN_BYTE   = %02h", i[7:0]);
+                $display("EXPECTED  = %02h", ref_sbox(i[7:0]));
+                $display("GOT       = %02h", out_byte);
+                $display("STATUS    = PASS");
             end
             else
             begin
                 fail_count = fail_count + 1;
-                $display("FAIL: SBOX(%02h) expected %02h, got %02h",
-                         i[7:0], ref_sbox(i[7:0]), out_byte);
+                $display("----------------------------------------------");
+                $display("TEST %0d: sbox_input_%02h", i + 1, i[7:0]);
+                $display("Operation = AES S-box Byte Substitution");
+                $display("IN_BYTE   = %02h", i[7:0]);
+                $display("EXPECTED  = %02h", ref_sbox(i[7:0]));
+                $display("GOT       = %02h", out_byte);
+                $display("STATUS    = FAIL");
             end
         end
 

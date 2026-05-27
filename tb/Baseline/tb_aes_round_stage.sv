@@ -36,17 +36,20 @@ module tb_aes_round_stage;
     begin
         test_count = test_count + 1;
 
+        $display("----------------------------------------------");
+        $display("TEST %0d: %s", test_count, label);
+        $display("EXPECTED = %032h", expected);
+        $display("GOT      = %032h", got);
+
         if (got === expected)
         begin
             pass_count = pass_count + 1;
-            $display("TEST %0d PASS: %s", test_count, label);
+            $display("STATUS   = PASS");
         end
         else
         begin
             fail_count = fail_count + 1;
-            $display("TEST %0d FAIL: %s", test_count, label);
-            $display("EXPECTED = %032h", expected);
-            $display("GOT      = %032h", got);
+            $display("STATUS   = FAIL");
         end
     end
     endtask
@@ -62,6 +65,10 @@ module tb_aes_round_stage;
         round_key   = input_round_key;
         final_round = input_final_round;
         #1;
+
+        $display("Round input state = %032h", input_state);
+        $display("Round key         = %032h", input_round_key);
+        $display("Final round flag  = %0b", input_final_round);
 
         check_value(label, state_out, expected_state);
     end
@@ -85,6 +92,12 @@ module tb_aes_round_stage;
         round_key   = 128'ha0fafe1788542cb123a339392a6c7605;
         final_round = 1'b0;
         #1;
+
+        $display("----------------------------------------------");
+        $display("Round 1 internal stage check setup");
+        $display("Round input state = %032h", state_in);
+        $display("Round key         = %032h", round_key);
+        $display("Final round flag  = %0b", final_round);
 
         check_value("Round 1 SubBytes output",
                     dut.sub_bytes_out,

@@ -37,19 +37,23 @@ module tb_key_expansion;
 
         test_count = test_count + 1;
 
+        $display("----------------------------------------------");
+        $display("TEST %0d: %s", test_count, test_name);
+        $display("Operation = AES-128 one-round key expansion");
+        $display("RCON      = %02h", input_rcon);
+        $display("KEY_IN    = %032h", input_key);
+        $display("EXPECTED  = %032h", expected_key);
+        $display("GOT       = %032h", key_out);
+
         if (key_out === expected_key)
         begin
             pass_count = pass_count + 1;
-            $display("TEST %0d PASS: %s", test_count, test_name);
+            $display("STATUS    = PASS");
         end
         else
         begin
             fail_count = fail_count + 1;
-            $display("TEST %0d FAIL: %s", test_count, test_name);
-            $display("RCON     = %02h", input_rcon);
-            $display("KEY IN   = %032h", input_key);
-            $display("EXPECTED = %032h", expected_key);
-            $display("GOT      = %032h", key_out);
+            $display("STATUS    = FAIL");
         end
     end
     endtask

@@ -34,18 +34,22 @@ module tb_sub_bytes;
 
         test_count = test_count + 1;
 
+        $display("----------------------------------------------");
+        $display("TEST %0d: %s", test_count, test_name);
+        $display("Operation = SubBytes");
+        $display("STATE_IN  = %032h", input_state);
+        $display("EXPECTED  = %032h", expected_state);
+        $display("GOT       = %032h", state_out);
+
         if (state_out === expected_state)
         begin
             pass_count = pass_count + 1;
-            $display("TEST %0d PASS: %s", test_count, test_name);
+            $display("STATUS    = PASS");
         end
         else
         begin
             fail_count = fail_count + 1;
-            $display("TEST %0d FAIL: %s", test_count, test_name);
-            $display("STATE_IN = %032h", input_state);
-            $display("EXPECTED = %032h", expected_state);
-            $display("GOT      = %032h", state_out);
+            $display("STATUS    = FAIL");
         end
     end
     endtask

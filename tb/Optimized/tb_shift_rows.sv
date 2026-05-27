@@ -54,15 +54,24 @@ module tb_shift_rows;
         if (state_out === expected_state)
         begin
             pass_count = pass_count + 1;
-            $display("TEST %0d PASS: %s", test_count, test_name);
+            $display("----------------------------------------------");
+            $display("TEST %0d: %s", test_count, test_name);
+            $display("Operation = ShiftRows");
+            $display("STATE_IN  = %032h", input_state);
+            $display("EXPECTED  = %032h", expected_state);
+            $display("GOT       = %032h", state_out);
+            $display("STATUS    = PASS");
         end
         else
         begin
             fail_count = fail_count + 1;
-            $display("TEST %0d FAIL: %s", test_count, test_name);
-            $display("INPUT    = %032h", input_state);
-            $display("EXPECTED = %032h", expected_state);
-            $display("GOT      = %032h", state_out);
+            $display("----------------------------------------------");
+            $display("TEST %0d: %s", test_count, test_name);
+            $display("Operation = ShiftRows");
+            $display("STATE_IN  = %032h", input_state);
+            $display("EXPECTED  = %032h", expected_state);
+            $display("GOT       = %032h", state_out);
+            $display("STATUS    = FAIL");
         end
     end
     endtask
