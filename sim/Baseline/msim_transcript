@@ -1,0 +1,449 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do aes128_baseline_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/sub_bytes.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:57:02 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/sub_bytes.sv 
+# -- Compiling module sub_bytes
+# 
+# Top level modules:
+# 	sub_bytes
+# End time: 13:57:02 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/shift_rows.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:57:02 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/shift_rows.sv 
+# -- Compiling module shift_rows
+# 
+# Top level modules:
+# 	shift_rows
+# End time: 13:57:02 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/sbox.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:57:02 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/sbox.sv 
+# -- Compiling module sbox
+# 
+# Top level modules:
+# 	sbox
+# End time: 13:57:02 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/mix_columns.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:57:02 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/mix_columns.sv 
+# -- Compiling module mix_columns_one_column
+# -- Compiling module mix_columns
+# 
+# Top level modules:
+# 	mix_columns
+# End time: 13:57:02 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/key_expansion.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:57:02 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/key_expansion.sv 
+# -- Compiling module keyexpansion
+# 
+# Top level modules:
+# 	keyexpansion
+# End time: 13:57:02 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/aes128_baseline.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:57:02 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/aes128_baseline.sv 
+# -- Compiling module aes128_baseline
+# 
+# Top level modules:
+# 	aes128_baseline
+# End time: 13:57:02 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/aes_round.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:57:02 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/aes_round.sv 
+# -- Compiling module aes_round
+# 
+# Top level modules:
+# 	aes_round
+# End time: 13:57:02 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/aes_core.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:57:02 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/aes_core.sv 
+# -- Compiling module aes_core
+# 
+# Top level modules:
+# 	aes_core
+# End time: 13:57:02 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/add_roundkey.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:57:02 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/add_roundkey.sv 
+# -- Compiling module add_roundkey
+# 
+# Top level modules:
+# 	add_roundkey
+# End time: 13:57:03 on May 22,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/baseline/../../tb/Baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/baseline/../../tb/Baseline/tb_aes128_encrypt.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:57:03 on May 22,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/baseline/../../tb/Baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/baseline/../../tb/Baseline/tb_aes128_encrypt.sv 
+# -- Compiling module tb_aes128_encrypt
+# 
+# Top level modules:
+# 	tb_aes128_encrypt
+# End time: 13:57:03 on May 22,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  tb_aes128_encrypt
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" tb_aes128_encrypt 
+# Start time: 13:57:03 on May 22,2026
+# Loading sv_std.std
+# Loading work.tb_aes128_encrypt
+# Loading work.aes128_baseline
+# Loading work.aes_core
+# Loading work.keyexpansion
+# Loading work.sbox
+# Loading work.aes_round
+# Loading work.sub_bytes
+# Loading work.shift_rows
+# Loading work.mix_columns
+# Loading work.mix_columns_one_column
+# Loading work.add_roundkey
+# 
+# add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: chinw  Hostname: LAPTOP-OGPLI5KQ  ProcessID: 23052
+#           Attempting to use alternate WLF file "./wlft4yxfrn".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft4yxfrn
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ==============================================
+# AES-128 Encryption Testbench Started
+# DUT selected : aes128_baseline
+# Max wait     : 10000 cycles
+# ==============================================
+# TEST 1 PASS | cycles = 11
+# TEST 2 PASS | cycles = 11
+# TEST 3 PASS | cycles = 11
+# TEST 4 PASS | cycles = 11
+# TEST 5 PASS | cycles = 11
+# TEST 6 PASS | cycles = 11
+# TEST 7 PASS | cycles = 11
+# TEST 8 PASS | cycles = 11
+# TEST 9 PASS | cycles = 11
+# TEST 10 PASS | cycles = 11
+# TEST 11 PASS | cycles = 11
+# TEST 12 PASS | cycles = 11
+# TEST 13 PASS | cycles = 11
+# TEST 14 PASS | cycles = 11
+# TEST 15 PASS | cycles = 11
+# TEST 16 PASS | cycles = 11
+# TEST 17 PASS | cycles = 11
+# TEST 18 PASS | cycles = 11
+# TEST 19 PASS | cycles = 11
+# TEST 20 PASS | cycles = 11
+# TEST 21 PASS | cycles = 11
+# TEST 22 PASS | cycles = 11
+# TEST 23 PASS | cycles = 11
+# TEST 24 PASS | cycles = 11
+# TEST 25 PASS | cycles = 11
+# TEST 26 PASS | cycles = 11
+# TEST 27 PASS | cycles = 11
+# TEST 28 PASS | cycles = 11
+# TEST 29 PASS | cycles = 11
+# TEST 30 PASS | cycles = 11
+# TEST 31 PASS | cycles = 11
+# TEST 32 PASS | cycles = 11
+# TEST 33 PASS | cycles = 11
+# TEST 34 PASS | cycles = 11
+# TEST 35 PASS | cycles = 11
+# TEST 36 PASS | cycles = 11
+# TEST 37 PASS | cycles = 11
+# TEST 38 PASS | cycles = 11
+# TEST 39 PASS | cycles = 11
+# TEST 40 PASS | cycles = 11
+# TEST 41 PASS | cycles = 11
+# TEST 42 PASS | cycles = 11
+# TEST 43 PASS | cycles = 11
+# TEST 44 PASS | cycles = 11
+# TEST 45 PASS | cycles = 11
+# TEST 46 PASS | cycles = 11
+# TEST 47 PASS | cycles = 11
+# TEST 48 PASS | cycles = 11
+# TEST 49 PASS | cycles = 11
+# TEST 50 PASS | cycles = 11
+# TEST 51 PASS | cycles = 11
+# TEST 52 PASS | cycles = 11
+# TEST 53 PASS | cycles = 11
+# TEST 54 PASS | cycles = 11
+# TEST 55 PASS | cycles = 11
+# TEST 56 PASS | cycles = 11
+# TEST 57 PASS | cycles = 11
+# TEST 58 PASS | cycles = 11
+# TEST 59 PASS | cycles = 11
+# TEST 60 PASS | cycles = 11
+# TEST 61 PASS | cycles = 11
+# TEST 62 PASS | cycles = 11
+# TEST 63 PASS | cycles = 11
+# TEST 64 PASS | cycles = 11
+# TEST 65 PASS | cycles = 11
+# TEST 66 PASS | cycles = 11
+# TEST 67 PASS | cycles = 11
+# TEST 68 PASS | cycles = 11
+# TEST 69 PASS | cycles = 11
+# TEST 70 PASS | cycles = 11
+# TEST 71 PASS | cycles = 11
+# TEST 72 PASS | cycles = 11
+# TEST 73 PASS | cycles = 11
+# TEST 74 PASS | cycles = 11
+# TEST 75 PASS | cycles = 11
+# TEST 76 PASS | cycles = 11
+# TEST 77 PASS | cycles = 11
+# TEST 78 PASS | cycles = 11
+# TEST 79 PASS | cycles = 11
+# TEST 80 PASS | cycles = 11
+# TEST 81 PASS | cycles = 11
+# TEST 82 PASS | cycles = 11
+# TEST 83 PASS | cycles = 11
+# TEST 84 PASS | cycles = 11
+# TEST 85 PASS | cycles = 11
+# TEST 86 PASS | cycles = 11
+# TEST 87 PASS | cycles = 11
+# TEST 88 PASS | cycles = 11
+# TEST 89 PASS | cycles = 11
+# TEST 90 PASS | cycles = 11
+# TEST 91 PASS | cycles = 11
+# TEST 92 PASS | cycles = 11
+# TEST 93 PASS | cycles = 11
+# TEST 94 PASS | cycles = 11
+# TEST 95 PASS | cycles = 11
+# TEST 96 PASS | cycles = 11
+# TEST 97 PASS | cycles = 11
+# TEST 98 PASS | cycles = 11
+# TEST 99 PASS | cycles = 11
+# TEST 100 PASS | cycles = 11
+# TEST 101 PASS | cycles = 11
+# TEST 102 PASS | cycles = 11
+# TEST 103 PASS | cycles = 11
+# TEST 104 PASS | cycles = 11
+# TEST 105 PASS | cycles = 11
+# TEST 106 PASS | cycles = 11
+# TEST 107 PASS | cycles = 11
+# TEST 108 PASS | cycles = 11
+# TEST 109 PASS | cycles = 11
+# TEST 110 PASS | cycles = 11
+# TEST 111 PASS | cycles = 11
+# TEST 112 PASS | cycles = 11
+# TEST 113 PASS | cycles = 11
+# TEST 114 PASS | cycles = 11
+# TEST 115 PASS | cycles = 11
+# TEST 116 PASS | cycles = 11
+# TEST 117 PASS | cycles = 11
+# TEST 118 PASS | cycles = 11
+# TEST 119 PASS | cycles = 11
+# TEST 120 PASS | cycles = 11
+# TEST 121 PASS | cycles = 11
+# TEST 122 PASS | cycles = 11
+# TEST 123 PASS | cycles = 11
+# TEST 124 PASS | cycles = 11
+# TEST 125 PASS | cycles = 11
+# TEST 126 PASS | cycles = 11
+# TEST 127 PASS | cycles = 11
+# TEST 128 PASS | cycles = 11
+# TEST 129 PASS | cycles = 11
+# TEST 130 PASS | cycles = 11
+# TEST 131 PASS | cycles = 11
+# TEST 132 PASS | cycles = 11
+# TEST 133 PASS | cycles = 11
+# TEST 134 PASS | cycles = 11
+# TEST 135 PASS | cycles = 11
+# TEST 136 PASS | cycles = 11
+# TEST 137 PASS | cycles = 11
+# TEST 138 PASS | cycles = 11
+# TEST 139 PASS | cycles = 11
+# TEST 140 PASS | cycles = 11
+# TEST 141 PASS | cycles = 11
+# TEST 142 PASS | cycles = 11
+# TEST 143 PASS | cycles = 11
+# TEST 144 PASS | cycles = 11
+# TEST 145 PASS | cycles = 11
+# TEST 146 PASS | cycles = 11
+# TEST 147 PASS | cycles = 11
+# TEST 148 PASS | cycles = 11
+# TEST 149 PASS | cycles = 11
+# TEST 150 PASS | cycles = 11
+# TEST 151 PASS | cycles = 11
+# TEST 152 PASS | cycles = 11
+# TEST 153 PASS | cycles = 11
+# TEST 154 PASS | cycles = 11
+# TEST 155 PASS | cycles = 11
+# TEST 156 PASS | cycles = 11
+# TEST 157 PASS | cycles = 11
+# TEST 158 PASS | cycles = 11
+# TEST 159 PASS | cycles = 11
+# TEST 160 PASS | cycles = 11
+# TEST 161 PASS | cycles = 11
+# TEST 162 PASS | cycles = 11
+# TEST 163 PASS | cycles = 11
+# TEST 164 PASS | cycles = 11
+# TEST 165 PASS | cycles = 11
+# TEST 166 PASS | cycles = 11
+# TEST 167 PASS | cycles = 11
+# TEST 168 PASS | cycles = 11
+# TEST 169 PASS | cycles = 11
+# TEST 170 PASS | cycles = 11
+# TEST 171 PASS | cycles = 11
+# TEST 172 PASS | cycles = 11
+# TEST 173 PASS | cycles = 11
+# TEST 174 PASS | cycles = 11
+# TEST 175 PASS | cycles = 11
+# TEST 176 PASS | cycles = 11
+# TEST 177 PASS | cycles = 11
+# TEST 178 PASS | cycles = 11
+# TEST 179 PASS | cycles = 11
+# TEST 180 PASS | cycles = 11
+# TEST 181 PASS | cycles = 11
+# TEST 182 PASS | cycles = 11
+# TEST 183 PASS | cycles = 11
+# TEST 184 PASS | cycles = 11
+# TEST 185 PASS | cycles = 11
+# TEST 186 PASS | cycles = 11
+# TEST 187 PASS | cycles = 11
+# TEST 188 PASS | cycles = 11
+# TEST 189 PASS | cycles = 11
+# TEST 190 PASS | cycles = 11
+# TEST 191 PASS | cycles = 11
+# TEST 192 PASS | cycles = 11
+# TEST 193 PASS | cycles = 11
+# TEST 194 PASS | cycles = 11
+# TEST 195 PASS | cycles = 11
+# TEST 196 PASS | cycles = 11
+# TEST 197 PASS | cycles = 11
+# TEST 198 PASS | cycles = 11
+# TEST 199 PASS | cycles = 11
+# TEST 200 PASS | cycles = 11
+# TEST 201 PASS | cycles = 11
+# TEST 202 PASS | cycles = 11
+# TEST 203 PASS | cycles = 11
+# TEST 204 PASS | cycles = 11
+# TEST 205 PASS | cycles = 11
+# TEST 206 PASS | cycles = 11
+# TEST 207 PASS | cycles = 11
+# TEST 208 PASS | cycles = 11
+# TEST 209 PASS | cycles = 11
+# TEST 210 PASS | cycles = 11
+# TEST 211 PASS | cycles = 11
+# TEST 212 PASS | cycles = 11
+# TEST 213 PASS | cycles = 11
+# TEST 214 PASS | cycles = 11
+# TEST 215 PASS | cycles = 11
+# TEST 216 PASS | cycles = 11
+# TEST 217 PASS | cycles = 11
+# TEST 218 PASS | cycles = 11
+# TEST 219 PASS | cycles = 11
+# TEST 220 PASS | cycles = 11
+# TEST 221 PASS | cycles = 11
+# TEST 222 PASS | cycles = 11
+# TEST 223 PASS | cycles = 11
+# TEST 224 PASS | cycles = 11
+# TEST 225 PASS | cycles = 11
+# TEST 226 PASS | cycles = 11
+# TEST 227 PASS | cycles = 11
+# TEST 228 PASS | cycles = 11
+# TEST 229 PASS | cycles = 11
+# TEST 230 PASS | cycles = 11
+# TEST 231 PASS | cycles = 11
+# TEST 232 PASS | cycles = 11
+# TEST 233 PASS | cycles = 11
+# TEST 234 PASS | cycles = 11
+# TEST 235 PASS | cycles = 11
+# TEST 236 PASS | cycles = 11
+# TEST 237 PASS | cycles = 11
+# TEST 238 PASS | cycles = 11
+# TEST 239 PASS | cycles = 11
+# TEST 240 PASS | cycles = 11
+# TEST 241 PASS | cycles = 11
+# TEST 242 PASS | cycles = 11
+# TEST 243 PASS | cycles = 11
+# TEST 244 PASS | cycles = 11
+# TEST 245 PASS | cycles = 11
+# TEST 246 PASS | cycles = 11
+# TEST 247 PASS | cycles = 11
+# TEST 248 PASS | cycles = 11
+# TEST 249 PASS | cycles = 11
+# TEST 250 PASS | cycles = 11
+# TEST 251 PASS | cycles = 11
+# TEST 252 PASS | cycles = 11
+# TEST 253 PASS | cycles = 11
+# TEST 254 PASS | cycles = 11
+# TEST 255 PASS | cycles = 11
+# TEST 256 PASS | cycles = 11
+# TEST 257 PASS | cycles = 11
+# TEST 258 PASS | cycles = 11
+# TEST 259 PASS | cycles = 11
+# TEST 260 PASS | cycles = 11
+# TEST 261 PASS | cycles = 11
+# TEST 262 PASS | cycles = 11
+# TEST 263 PASS | cycles = 11
+# TEST 264 PASS | cycles = 11
+# TEST 265 PASS | cycles = 11
+# TEST 266 PASS | cycles = 11
+# TEST 267 PASS | cycles = 11
+# TEST 268 PASS | cycles = 11
+# TEST 269 PASS | cycles = 11
+# TEST 270 PASS | cycles = 11
+# TEST 271 PASS | cycles = 11
+# TEST 272 PASS | cycles = 11
+# TEST 273 PASS | cycles = 11
+# TEST 274 PASS | cycles = 11
+# TEST 275 PASS | cycles = 11
+# TEST 276 PASS | cycles = 11
+# TEST 277 PASS | cycles = 11
+# TEST 278 PASS | cycles = 11
+# TEST 279 PASS | cycles = 11
+# TEST 280 PASS | cycles = 11
+# TEST 281 PASS | cycles = 11
+# TEST 282 PASS | cycles = 11
+# TEST 283 PASS | cycles = 11
+# TEST 284 PASS | cycles = 11
+# TEST 285 PASS | cycles = 11
+# TEST 286 PASS | cycles = 11
+# TEST 287 PASS | cycles = 11
+# TEST 288 PASS | cycles = 11
+# ==============================================
+# AES-128 Encryption Testbench Summary
+# ==============================================
+# Total tests : 288
+# Passed      : 288
+# Failed      : 0
+# ==============================================
+# RESULT: ALL AES-128 TEST VECTORS PASSED
+# ** Note: $finish    : C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/baseline/../../tb/Baseline/tb_aes128_encrypt.sv(365)
+#    Time: 46175 ns  Iteration: 1  Instance: /tb_aes128_encrypt
+# 1
+# Break in Module tb_aes128_encrypt at C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/baseline/../../tb/Baseline/tb_aes128_encrypt.sv line 365
+# End time: 13:57:13 on May 22,2026, Elapsed time: 0:00:10
+# Errors: 0, Warnings: 2
