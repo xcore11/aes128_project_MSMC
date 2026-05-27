@@ -1,0 +1,114 @@
+# ShiftRows Unit Test Started
+# ==============================================
+# ----------------------------------------------
+# TEST 1: ascending_bytes_fixed_expected
+# Operation = ShiftRows
+# STATE_IN  = 000102030405060708090a0b0c0d0e0f
+# EXPECTED  = 00050a0f04090e03080d02070c01060b
+# GOT       = 00050a0f04090e03080d02070c01060b
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 2: all_ones
+# Operation = ShiftRows
+# STATE_IN  = ffffffffffffffffffffffffffffffff
+# EXPECTED  = ffffffffffffffffffffffffffffffff
+# GOT       = ffffffffffffffffffffffffffffffff
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 3: all_zeroes
+# Operation = ShiftRows
+# STATE_IN  = 00000000000000000000000000000000
+# EXPECTED  = 00000000000000000000000000000000
+# GOT       = 00000000000000000000000000000000
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 4: descending_pattern
+# Operation = ShiftRows
+# STATE_IN  = ffeeddccbbaa99887766554433221100
+# EXPECTED  = ffaa5500bb6611cc7722dd8833ee9944
+# GOT       = ffaa5500bb6611cc7722dd8833ee9944
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 5: mixed_pattern_1
+# Operation = ShiftRows
+# STATE_IN  = 0123456789abcdeffedcba9876543210
+# EXPECTED  = 01abba1089dc3267fe5445ef7623cd98
+# GOT       = 01abba1089dc3267fe5445ef7623cd98
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 6: fips197_round1_subbytes_to_shiftrows
+# Operation = ShiftRows
+# STATE_IN  = d42711aee0bf98f1b8b45de51e415230
+# EXPECTED  = d4bf5d30e0b452aeb84111f11e2798e5
+# GOT       = d4bf5d30e0b452aeb84111f11e2798e5
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 7: fips197_round2_subbytes_to_shiftrows
+# Operation = ShiftRows
+# STATE_IN  = 49ded28945db96f17f39871a7702533b
+# EXPECTED  = 49db873b453953897f02d2f177de961a
+# GOT       = 49db873b453953897f02d2f177de961a
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 8: fips197_round3_subbytes_to_shiftrows
+# Operation = ShiftRows
+# STATE_IN  = ac73cf7befc111df13b5d6b545235ab8
+# EXPECTED  = acc1d6b8efb55a7b1323cfdf457311b5
+# GOT       = acc1d6b8efb55a7b1323cfdf457311b5
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 9: fips197_round4_subbytes_to_shiftrows
+# Operation = ShiftRows
+# STATE_IN  = 52502f2885a45ed7e311c807f6cf6a94
+# EXPECTED  = 52a4c89485116a28e3cf2fd7f6505e07
+# GOT       = 52a4c89485116a28e3cf2fd7f6505e07
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 10: fips197_round5_subbytes_to_shiftrows
+# Operation = ShiftRows
+# STATE_IN  = e14fd29be8fbfbba35c89653976cae7c
+# EXPECTED  = e1fb967ce8c8ae9b356cd2ba974ffb53
+# GOT       = e1fb967ce8c8ae9b356cd2ba974ffb53
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 11: fips197_round6_subbytes_to_shiftrows
+# Operation = ShiftRows
+# STATE_IN  = a163a8fc784f29df10e83d234cd503fe
+# EXPECTED  = a14f3dfe78e803fc10d5a8df4c632923
+# GOT       = a14f3dfe78e803fc10d5a8df4c632923
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 12: fips197_round7_subbytes_to_shiftrows
+# Operation = ShiftRows
+# STATE_IN  = f7ab31f02783a9ff9b4340d354b53d3f
+# EXPECTED  = f783403f27433df09bb531ff54aba9d3
+# GOT       = f783403f27433df09bb531ff54aba9d3
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 13: fips197_round8_subbytes_to_shiftrows
+# Operation = ShiftRows
+# STATE_IN  = be832cc8d43b86c00ae1d44dda64f2fe
+# EXPECTED  = be3bd4fed4e1f2c80a642cc0da83864d
+# GOT       = be3bd4fed4e1f2c80a642cc0da83864d
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 14: fips197_round9_subbytes_to_shiftrows
+# Operation = ShiftRows
+# STATE_IN  = 87ec4a8cf26ec3d84d4c46959790e7a6
+# EXPECTED  = 876e46a6f24ce78c4d904ad897ecc395
+# GOT       = 876e46a6f24ce78c4d904ad897ecc395
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 15: fips197_round10_subbytes_to_shiftrows
+# Operation = ShiftRows
+# STATE_IN  = e9098972cb31075f3d327d94af2e2cb5
+# EXPECTED  = e9317db5cb322c723d2e895faf090794
+# GOT       = e9317db5cb322c723d2e895faf090794
+# STATUS    = PASS
+# ==============================================
+# ShiftRows Summary
+# Total tests : 15
+# Passed      : 15
+# Failed      : 0
+# ==============================================
+# RESULT: SHIFTROWS UNIT TEST PASSED

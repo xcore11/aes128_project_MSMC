@@ -35,8 +35,8 @@
  *     `define USE_OPTIMIZED
  */
 
-`define USE_BASELINE
-// `define USE_OPTIMIZED
+// `define USE_BASELINE
+`define USE_OPTIMIZED
 
 module tb_aes128_encrypt;
 
@@ -254,13 +254,10 @@ module tb_aes128_encrypt;
 
             $display("----------------------------------------------");
             $display("TEST %0d FAIL: Timeout waiting for done signal", test_count);
-            $display("Operation  = Full AES-128 Encryption");
-            $display("Cycles     = %0d", cycle_count);
             $display("KEY        = %032h", input_key);
             $display("PLAINTEXT  = %032h", input_plaintext);
             $display("EXPECTED   = %032h", input_expected_cipher);
             $display("GOT        = %032h", ciphertext);
-            $display("STATUS     = FAIL");
 
             /*
              * Recovery step:
@@ -274,14 +271,12 @@ module tb_aes128_encrypt;
             pass_count = pass_count + 1;
 
             $display("----------------------------------------------");
-            $display("TEST %0d PASS", test_count);
-            $display("Operation  = Full AES-128 Encryption");
-            $display("Cycles     = %0d", cycle_count);
+            $display("TEST %0d PASS: AES-128 encryption vector", test_count);
             $display("KEY        = %032h", input_key);
             $display("PLAINTEXT  = %032h", input_plaintext);
             $display("EXPECTED   = %032h", input_expected_cipher);
             $display("GOT        = %032h", ciphertext);
-            $display("STATUS     = PASS");
+            $display("CYCLES     = %0d", cycle_count);
         end
         else
         begin
@@ -289,13 +284,11 @@ module tb_aes128_encrypt;
 
             $display("----------------------------------------------");
             $display("TEST %0d FAIL: Ciphertext mismatch", test_count);
-            $display("Operation  = Full AES-128 Encryption");
-            $display("Cycles     = %0d", cycle_count);
             $display("KEY        = %032h", input_key);
             $display("PLAINTEXT  = %032h", input_plaintext);
             $display("EXPECTED   = %032h", input_expected_cipher);
             $display("GOT        = %032h", ciphertext);
-            $display("STATUS     = FAIL");
+            $display("CYCLES     = %0d", cycle_count);
         end
 
         /*

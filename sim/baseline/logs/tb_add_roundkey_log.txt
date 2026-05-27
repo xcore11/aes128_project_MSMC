@@ -1,0 +1,106 @@
+# ==============================================
+# AES AddRoundKey Unit Test Started
+# ==============================================
+# ----------------------------------------------
+# TEST 1: zero_state_zero_key
+# Operation : AddRoundKey
+# STATE_IN  = 00000000000000000000000000000000
+# ROUND_KEY = 00000000000000000000000000000000
+# EXPECTED  = 00000000000000000000000000000000
+# GOT       = 00000000000000000000000000000000
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 2: zero_state_xor_fips_key
+# Operation : AddRoundKey
+# STATE_IN  = 00000000000000000000000000000000
+# ROUND_KEY = 2b7e151628aed2a6abf7158809cf4f3c
+# EXPECTED  = 2b7e151628aed2a6abf7158809cf4f3c
+# GOT       = 2b7e151628aed2a6abf7158809cf4f3c
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 3: all_ones_state_xor_pattern_key
+# Operation : AddRoundKey
+# STATE_IN  = ffffffffffffffffffffffffffffffff
+# ROUND_KEY = 0123456789abcdeffedcba9876543210
+# EXPECTED  = fedcba98765432100123456789abcdef
+# GOT       = fedcba98765432100123456789abcdef
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 4: complementary_patterns
+# Operation : AddRoundKey
+# STATE_IN  = 0123456789abcdeffedcba9876543210
+# ROUND_KEY = fedcba98765432100123456789abcdef
+# EXPECTED  = ffffffffffffffffffffffffffffffff
+# GOT       = ffffffffffffffffffffffffffffffff
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 5: nist_block1_xor_fips_key
+# Operation : AddRoundKey
+# STATE_IN  = 6bc1bee22e409f96e93d7e117393172a
+# ROUND_KEY = 2b7e151628aed2a6abf7158809cf4f3c
+# EXPECTED  = 40bfabf406ee4d3042ca6b997a5c5816
+# GOT       = 40bfabf406ee4d3042ca6b997a5c5816
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 6: nist_block2_xor_round1_key
+# Operation : AddRoundKey
+# STATE_IN  = ae2d8a571e03ac9c9eb76fac45af8e51
+# ROUND_KEY = a0fafe1788542cb123a339392a6c7605
+# EXPECTED  = 0ed774409657802dbd1456956fc3f854
+# GOT       = 0ed774409657802dbd1456956fc3f854
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 7: nist_block3_xor_round2_key
+# Operation : AddRoundKey
+# STATE_IN  = 30c81c46a35ce411e5fbc1191a0a52ef
+# ROUND_KEY = f2c295f27a96b9435935807a7359f67f
+# EXPECTED  = c20a89b4d9ca5d52bcce41636953a490
+# GOT       = c20a89b4d9ca5d52bcce41636953a490
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 8: fips197_initial_addroundkey
+# Operation : AddRoundKey
+# STATE_IN  = 3243f6a8885a308d313198a2e0370734
+# ROUND_KEY = 2b7e151628aed2a6abf7158809cf4f3c
+# EXPECTED  = 193de3bea0f4e22b9ac68d2ae9f84808
+# GOT       = 193de3bea0f4e22b9ac68d2ae9f84808
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 9: fips197_round1_addroundkey
+# Operation : AddRoundKey
+# STATE_IN  = 046681e5e0cb199a48f8d37a2806264c
+# ROUND_KEY = a0fafe1788542cb123a339392a6c7605
+# EXPECTED  = a49c7ff2689f352b6b5bea43026a5049
+# GOT       = a49c7ff2689f352b6b5bea43026a5049
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 10: fips197_round2_addroundkey
+# Operation : AddRoundKey
+# STATE_IN  = 584dcaf11b4b5aacdbe7caa81b6bb0e5
+# ROUND_KEY = f2c295f27a96b9435935807a7359f67f
+# EXPECTED  = aa8f5f0361dde3ef82d24ad26832469a
+# GOT       = aa8f5f0361dde3ef82d24ad26832469a
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 11: fips197_round3_addroundkey
+# Operation : AddRoundKey
+# STATE_IN  = 75ec0993200b633353c0cf7cbb25d0dc
+# ROUND_KEY = 3d80477d4716fe3e1e237e446d7a883b
+# EXPECTED  = 486c4eee671d9d0d4de3b138d65f58e7
+# GOT       = 486c4eee671d9d0d4de3b138d65f58e7
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 12: fips197_final_addroundkey
+# Operation : AddRoundKey
+# STATE_IN  = e9317db5cb322c723d2e895faf090794
+# ROUND_KEY = d014f9a8c9ee2589e13f0cc8b6630ca6
+# EXPECTED  = 3925841d02dc09fbdc118597196a0b32
+# GOT       = 3925841d02dc09fbdc118597196a0b32
+# STATUS    = PASS
+# ==============================================
+# AES AddRoundKey Unit Test Summary
+# Total tests : 12
+# Passed      : 12
+# Failed      : 0
+# ==============================================
+# RESULT: ALL ADDROUNDKEY TESTS PASSED
