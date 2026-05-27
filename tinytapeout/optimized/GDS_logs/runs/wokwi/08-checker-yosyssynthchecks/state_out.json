@@ -1,0 +1,14 @@
+{
+    "json_h": "/home/runner/work/ttsky-aes128-optimized/ttsky-aes128-optimized/runs/wokwi/05-yosys-jsonheader/tt_um_aes128_optimized.h.json",
+    "nl": "/home/runner/work/ttsky-aes128-optimized/ttsky-aes128-optimized/runs/wokwi/06-yosys-synthesis/tt_um_aes128_optimized.nl.v",
+    "metrics": {
+        "design__lint_error__count": 0,
+        "design__lint_timing_construct__count": 0,
+        "design__lint_warning__count": 449,
+        "design__inferred_latch__count": 0,
+        "design__instance__count": 4074,
+        "design__instance__area": 58773.8688,
+        "design__instance_unmapped__count": 0,
+        "synthesis__check_error__count": 0
+    }
+}

@@ -1,0 +1,41 @@
+127. Printing statistics.
+
+=== tt_um_aes128_optimized ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     4602 wires
+     6183 wire bits
+       37 public wires
+     1086 public wire bits
+        8 ports
+       43 port bits
+     5860 cells
+     1321   $_ANDNOT_
+      191   $_AND_
+      994   $_DFFE_PN0P_
+       15   $_DFF_PN0_
+        1   $_DFF_PN1_
+      804   $_MUX_
+       53   $_NAND_
+       75   $_NOR_
+      306   $_NOT_
+      211   $_ORNOT_
+     1385   $_OR_
+      128   $_XNOR_
+      376   $_XOR_
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_DFFE_PN0P_ is unknown!
+   Area for cell type $_DFF_PN0_ is unknown!
+   Area for cell type $_DFF_PN1_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+

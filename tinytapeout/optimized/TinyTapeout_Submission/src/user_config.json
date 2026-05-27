@@ -1,0 +1,16 @@
+{
+  "DESIGN_NAME": "tt_um_aes128_optimized",
+  "VERILOG_FILES": [
+    "dir::tt_um_aes128_optimized.sv",
+    "dir::aes128_optimized.sv",
+    "dir::aes_core.sv",
+    "dir::mix_columns.sv",
+    "dir::sbox.sv",
+    "dir::shift_rows.sv"
+  ],
+  "DIE_AREA": "0 0 682.64 225.76",
+  "FP_DEF_TEMPLATE": "dir::../tt/tech/sky130A/def/tt_block_4x2_pg.def",
+  "VDD_PIN": "VPWR",
+  "GND_PIN": "VGND",
+  "RT_MAX_LAYER": "met4"
+}
