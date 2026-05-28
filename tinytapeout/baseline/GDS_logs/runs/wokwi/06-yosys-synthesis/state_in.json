@@ -1,0 +1,9 @@
+{
+    "json_h": "/home/runner/work/ttsky-aes128-baseline/ttsky-aes128-baseline/runs/wokwi/05-yosys-jsonheader/tt_um_aes128_baseline.h.json",
+    "metrics": {
+        "design__lint_error__count": 0,
+        "design__lint_timing_construct__count": 0,
+        "design__lint_warning__count": 447,
+        "design__inferred_latch__count": 0
+    }
+}
