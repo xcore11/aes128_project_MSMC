@@ -1,0 +1,56 @@
+Flow Summary report for aes128_baseline
+Thu May 28 15:58:53 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Wed May 27 14:37:44 2026       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; aes128_baseline                             ;
+; Top-level Entity Name              ; aes128_baseline                             ;
+; Family                             ; MAX 10                                      ;
+; Device                             ; 10M08DAF484C8G                              ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 4,943 / 8,064 ( 61 % )                      ;
+;     Total combinational functions  ; 4,942 / 8,064 ( 61 % )                      ;
+;     Dedicated logic registers      ; 398 / 8,064 ( 5 % )                         ;
+; Total registers                    ; 398                                         ;
+; Total pins                         ; 0 / 250 ( 0 % )                             ;
+; Total virtual pins                 ; 389                                         ;
+; Total memory bits                  ; 0 / 387,072 ( 0 % )                         ;
+; Embedded Multiplier 9-bit elements ; 0 / 48 ( 0 % )                              ;
+; Total PLLs                         ; 0 / 2 ( 0 % )                               ;
+; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
+; ADC blocks                         ; 0 / 1 ( 0 % )                               ;
++------------------------------------+---------------------------------------------+
+
+

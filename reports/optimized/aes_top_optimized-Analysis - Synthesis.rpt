@@ -1,0 +1,780 @@
+Analysis & Synthesis report for aes_top_optimized
+Thu May 28 16:03:21 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |aes128_optimized|aes_core:u_aes_core|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed May 27 14:42:33 2026       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; aes_top_optimized                           ;
+; Top-level Entity Name              ; aes128_optimized                            ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 1,459                                       ;
+;     Total combinational functions  ; 1,458                                       ;
+;     Dedicated logic registers      ; 606                                         ;
+; Total registers                    ; 606                                         ;
+; Total pins                         ; 0                                           ;
+; Total virtual pins                 ; 389                                         ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M08DAF484C8G     ;                    ;
+; Top-level entity name                                            ; aes128_optimized   ; aes_top_optimized  ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                      ;
++-----------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                                           ; Library ;
++-----------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; ../../rtl/optimized/aes128_optimized.sv ; yes             ; User SystemVerilog HDL File  ; C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv ;         ;
+; ../../rtl/optimized/aes_core.sv         ; yes             ; User SystemVerilog HDL File  ; C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes_core.sv         ;         ;
+; ../../rtl/optimized/mix_columns.sv      ; yes             ; User SystemVerilog HDL File  ; C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/mix_columns.sv      ;         ;
+; ../../rtl/optimized/shift_rows.sv       ; yes             ; User SystemVerilog HDL File  ; C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/shift_rows.sv       ;         ;
+; ../../rtl/optimized/sbox.sv             ; yes             ; User SystemVerilog HDL File  ; C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/sbox.sv             ;         ;
++-----------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 1,459 ;
+;                                             ;       ;
+; Total combinational functions               ; 1458  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 919   ;
+;     -- 3 input functions                    ; 320   ;
+;     -- <=2 input functions                  ; 219   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 1458  ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 606   ;
+;     -- Dedicated logic registers            ; 606   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; Virtual pins                                ; 389   ;
+; I/O pins                                    ; 0     ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 606   ;
+; Total fan-out                               ; 7570  ;
+; Average fan-out                             ; 3.09  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                        ;
++----------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------+------------------------+--------------+
+; Compilation Hierarchy Node                                     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                          ; Entity Name            ; Library Name ;
++----------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------+------------------------+--------------+
+; |aes128_optimized                                              ; 1458 (0)            ; 606 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 389          ; 0          ; |aes128_optimized                                                                            ; aes128_optimized       ; work         ;
+;    |aes_core:u_aes_core|                                       ; 1458 (1328)         ; 606 (606)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |aes128_optimized|aes_core:u_aes_core                                                        ; aes_core               ; work         ;
+;       |mix_columns_one_column:u_shared_mix_columns_one_column| ; 46 (46)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |aes128_optimized|aes_core:u_aes_core|mix_columns_one_column:u_shared_mix_columns_one_column ; mix_columns_one_column ; work         ;
+;       |sbox:u_shared_sbox|                                     ; 84 (84)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |aes128_optimized|aes_core:u_aes_core|sbox:u_shared_sbox                                     ; sbox                   ; work         ;
++----------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------+------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |aes128_optimized|aes_core:u_aes_core|state                                                                                                                                                                                        ;
++----------------------------+---------------+----------------------+---------------------+--------------------+-------------------+----------------------------+----------------------+----------------------+----------------------+---------------+
+; Name                       ; state.ST_DONE ; state.ST_ADDROUNDKEY ; state.ST_MIXCOLUMNS ; state.ST_SHIFTROWS ; state.ST_SUBBYTES ; state.ST_KEY_MAKE_ROUNDKEY ; state.ST_KEY_SUBWORD ; state.ST_KEY_ROTWORD ; state.ST_INIT_ADDKEY ; state.ST_IDLE ;
++----------------------------+---------------+----------------------+---------------------+--------------------+-------------------+----------------------------+----------------------+----------------------+----------------------+---------------+
+; state.ST_IDLE              ; 0             ; 0                    ; 0                   ; 0                  ; 0                 ; 0                          ; 0                    ; 0                    ; 0                    ; 0             ;
+; state.ST_INIT_ADDKEY       ; 0             ; 0                    ; 0                   ; 0                  ; 0                 ; 0                          ; 0                    ; 0                    ; 1                    ; 1             ;
+; state.ST_KEY_ROTWORD       ; 0             ; 0                    ; 0                   ; 0                  ; 0                 ; 0                          ; 0                    ; 1                    ; 0                    ; 1             ;
+; state.ST_KEY_SUBWORD       ; 0             ; 0                    ; 0                   ; 0                  ; 0                 ; 0                          ; 1                    ; 0                    ; 0                    ; 1             ;
+; state.ST_KEY_MAKE_ROUNDKEY ; 0             ; 0                    ; 0                   ; 0                  ; 0                 ; 1                          ; 0                    ; 0                    ; 0                    ; 1             ;
+; state.ST_SUBBYTES          ; 0             ; 0                    ; 0                   ; 0                  ; 1                 ; 0                          ; 0                    ; 0                    ; 0                    ; 1             ;
+; state.ST_SHIFTROWS         ; 0             ; 0                    ; 0                   ; 1                  ; 0                 ; 0                          ; 0                    ; 0                    ; 0                    ; 1             ;
+; state.ST_MIXCOLUMNS        ; 0             ; 0                    ; 1                   ; 0                  ; 0                 ; 0                          ; 0                    ; 0                    ; 0                    ; 1             ;
+; state.ST_ADDROUNDKEY       ; 0             ; 1                    ; 0                   ; 0                  ; 0                 ; 0                          ; 0                    ; 0                    ; 0                    ; 1             ;
+; state.ST_DONE              ; 1             ; 0                    ; 0                   ; 0                  ; 0                 ; 0                          ; 0                    ; 0                    ; 0                    ; 1             ;
++----------------------------+---------------+----------------------+---------------------+--------------------+-------------------+----------------------------+----------------------+----------------------+----------------------+---------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; aes_core:u_aes_core|state~11          ; Lost fanout        ;
+; aes_core:u_aes_core|state~12          ; Lost fanout        ;
+; aes_core:u_aes_core|state~13          ; Lost fanout        ;
+; aes_core:u_aes_core|state~14          ; Lost fanout        ;
+; Total Number of Removed Registers = 4 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 606   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 64    ;
+; Number of registers using Asynchronous Clear ; 606   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 420   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; 4:1                ; 128 bits  ; 256 LEs       ; 128 LEs              ; 128 LEs                ; Yes        ; |aes128_optimized|aes_core:u_aes_core|round_key_reg[119] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |aes128_optimized|aes_core:u_aes_core|rcon_reg[0]        ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |aes128_optimized|aes_core:u_aes_core|byte_count[3]      ;
+; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |aes128_optimized|aes_core:u_aes_core|state_reg[90]      ;
+; 10:1               ; 96 bits   ; 576 LEs       ; 192 LEs              ; 384 LEs                ; Yes        ; |aes128_optimized|aes_core:u_aes_core|state_reg[105]     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Mux0               ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Mux25              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|rcon_reg           ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Mux14              ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector162        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector158        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector150        ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector135        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector194        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector190        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector181        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector172        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector230        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector222        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector211        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector201        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector250        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector242        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector233        ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector260        ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector734        ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |aes128_optimized|aes_core:u_aes_core|Selector738        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 389                         ;
+; cycloneiii_ff         ; 606                         ;
+;     CLR               ; 186                         ;
+;     ENA CLR           ; 356                         ;
+;     ENA CLR SLD       ; 64                          ;
+; cycloneiii_lcell_comb ; 1458                        ;
+;     normal            ; 1458                        ;
+;         2 data inputs ; 219                         ;
+;         3 data inputs ; 320                         ;
+;         4 data inputs ; 919                         ;
+;                       ;                             ;
+; Max LUT depth         ; 18.00                       ;
+; Average LUT depth     ; 7.90                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Wed May 27 14:42:18 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off aes128_optimized -c aes_top_optimized
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/user/onedrive - monash university/desktop/studies/monash year 3/ece4063 - integrated circuit design/project/rtl/optimized/aes128_optimized.sv
+    Info (12023): Found entity 1: aes128_optimized File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 30
+Info (12021): Found 1 design units, including 1 entities, in source file /users/user/onedrive - monash university/desktop/studies/monash year 3/ece4063 - integrated circuit design/project/rtl/optimized/aes_core.sv
+    Info (12023): Found entity 1: aes_core File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes_core.sv Line: 76
+Info (12021): Found 1 design units, including 1 entities, in source file /users/user/onedrive - monash university/desktop/studies/monash year 3/ece4063 - integrated circuit design/project/rtl/optimized/mix_columns.sv
+    Info (12023): Found entity 1: mix_columns_one_column File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/mix_columns.sv Line: 57
+Info (12021): Found 1 design units, including 1 entities, in source file /users/user/onedrive - monash university/desktop/studies/monash year 3/ece4063 - integrated circuit design/project/rtl/optimized/shift_rows.sv
+    Info (12023): Found entity 1: shift_rows File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/shift_rows.sv Line: 59
+Info (12021): Found 1 design units, including 1 entities, in source file /users/user/onedrive - monash university/desktop/studies/monash year 3/ece4063 - integrated circuit design/project/rtl/optimized/sbox.sv
+    Info (12023): Found entity 1: sbox File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/sbox.sv Line: 47
+Info (12127): Elaborating entity "aes128_optimized" for the top level hierarchy
+Info (12128): Elaborating entity "aes_core" for hierarchy "aes_core:u_aes_core" File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 70
+Info (10264): Verilog HDL Case Statement information at aes_core.sv(341): all case item expressions in this case statement are onehot File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes_core.sv Line: 341
+Info (10264): Verilog HDL Case Statement information at aes_core.sv(395): all case item expressions in this case statement are onehot File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes_core.sv Line: 395
+Info (12128): Elaborating entity "sbox" for hierarchy "aes_core:u_aes_core|sbox:u_shared_sbox" File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes_core.sv Line: 277
+Info (12128): Elaborating entity "mix_columns_one_column" for hierarchy "aes_core:u_aes_core|mix_columns_one_column:u_shared_mix_columns_one_column" File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes_core.sv Line: 289
+Info (12128): Elaborating entity "shift_rows" for hierarchy "aes_core:u_aes_core|shift_rows:u_shift_rows" File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes_core.sv Line: 301
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Critical Warning (15725): clock port is fed by virtual pin "clk~input"; timing analysis treats input to the clock port as a ripple clock
+Info (15717): Design contains 389 virtual pins; timing numbers associated with paths containing virtual pins are estimates
+    Info (15719): Pin "ciphertext[0]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[1]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[2]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[3]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[4]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[5]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[6]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[7]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[8]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[9]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[10]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[11]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[12]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[13]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[14]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[15]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[16]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[17]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[18]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[19]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[20]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[21]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[22]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[23]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[24]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[25]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[26]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[27]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[28]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[29]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[30]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[31]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[32]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[33]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[34]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[35]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[36]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[37]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[38]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[39]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[40]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[41]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[42]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[43]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[44]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[45]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[46]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[47]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[48]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[49]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[50]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[51]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[52]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[53]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[54]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[55]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[56]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[57]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[58]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[59]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[60]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[61]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[62]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[63]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[64]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[65]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[66]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[67]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[68]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[69]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[70]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[71]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[72]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[73]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[74]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[75]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[76]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[77]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[78]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[79]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[80]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[81]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[82]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[83]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[84]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[85]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[86]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[87]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[88]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[89]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[90]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[91]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[92]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[93]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[94]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[95]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[96]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[97]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[98]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[99]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[100]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[101]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[102]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[103]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[104]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[105]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[106]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[107]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[108]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[109]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[110]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[111]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[112]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[113]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[114]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[115]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[116]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[117]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[118]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[119]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[120]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[121]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[122]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[123]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[124]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[125]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[126]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "ciphertext[127]" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 48
+    Info (15719): Pin "busy" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 51
+    Info (15719): Pin "done" is virtual output pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 55
+    Info (15718): Pin "clk" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 33
+    Info (15718): Pin "reset_n" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 36
+    Info (15718): Pin "start" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 39
+    Info (15718): Pin "plaintext[0]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[0]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[1]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[1]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[2]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[2]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[3]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[3]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[4]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[4]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[5]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[5]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[6]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[6]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[7]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[7]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[8]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[8]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[9]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[9]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[10]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[10]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[11]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[11]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[12]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[12]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[13]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[13]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[14]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[14]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[15]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[15]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[16]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[16]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[17]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[17]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[18]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[18]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[19]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[19]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[20]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[20]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[21]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[21]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[22]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[22]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[23]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[23]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[24]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[24]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[25]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[25]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[26]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[26]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[27]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[27]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[28]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[28]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[29]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[29]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[30]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[30]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[31]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[31]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[32]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[32]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[33]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[33]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[34]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[34]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[35]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[35]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[36]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[36]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[37]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[37]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[38]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[38]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[39]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[39]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[40]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[40]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[41]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[41]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[42]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[42]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[43]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[43]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[44]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[44]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[45]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[45]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[46]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[46]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[47]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[47]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[48]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[48]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[49]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[49]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[50]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[50]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[51]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[51]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[52]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[52]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[53]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[53]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[54]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[54]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[55]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[55]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "key[56]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[56]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[57]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[57]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[58]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[58]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[59]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[59]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[60]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[60]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[61]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[61]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[62]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[62]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[63]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[63]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "plaintext[64]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[64]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[65]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[65]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[66]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[66]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[67]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[67]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[68]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[68]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[69]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[69]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[70]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[70]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[71]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[71]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[72]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[72]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[73]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[73]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[74]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[74]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[75]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[75]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[76]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[76]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[77]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[77]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[78]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[78]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[79]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[79]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[80]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[80]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[81]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[81]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[82]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[82]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[83]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[83]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[84]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[84]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[85]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[85]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[86]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[86]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[87]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[87]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "key[88]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[88]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[89]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[89]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[90]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[90]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[91]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[91]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[92]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[92]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[93]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[93]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[94]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[94]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[95]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[95]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "plaintext[96]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[96]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[97]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[97]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[98]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[98]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[99]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[99]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[100]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[100]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[101]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[101]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[102]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[102]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[103]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[103]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[104]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[104]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[105]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[105]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[106]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[106]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[107]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[107]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[108]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[108]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[109]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[109]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[110]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[110]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[111]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[111]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[112]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[112]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[113]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[113]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[114]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[114]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[115]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[115]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[116]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[116]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[117]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[117]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[118]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[118]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[119]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[119]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "key[120]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[120]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[121]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[121]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[122]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[122]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[123]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[123]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[124]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[124]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[125]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[125]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[126]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[126]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+    Info (15718): Pin "key[127]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 45
+    Info (15718): Pin "plaintext[127]" is virtual input pin File: C:/Users/User/OneDrive - Monash University/Desktop/Studies/Monash Year 3/ECE4063 - Integrated Circuit Design/Project/rtl/optimized/aes128_optimized.sv Line: 42
+Warning (15751): Ignored Virtual Pin assignment to "aes_core:u_aes_core".
+Info (21057): Implemented 1945 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 0 input pins
+    Info (21059): Implemented 0 output pins
+    Info (21061): Implemented 1945 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4834 megabytes
+    Info: Processing ended: Wed May 27 14:42:33 2026
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:23
+
+
