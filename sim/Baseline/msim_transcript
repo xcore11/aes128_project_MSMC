@@ -1,0 +1,274 @@
+# Reading C:/intelFPGA_lite/18.1/modelsim_ae/tcl/vsim/pref.tcl
+# do aes128_baseline_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/18.1/modelsim_ae/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/sub_bytes.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:02:12 on May 28,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/sub_bytes.sv 
+# -- Compiling module sub_bytes
+# 
+# Top level modules:
+# 	sub_bytes
+# End time: 16:02:12 on May 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/shift_rows.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:02:12 on May 28,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/shift_rows.sv 
+# -- Compiling module shift_rows
+# 
+# Top level modules:
+# 	shift_rows
+# End time: 16:02:12 on May 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/sbox.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:02:12 on May 28,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/sbox.sv 
+# -- Compiling module sbox
+# 
+# Top level modules:
+# 	sbox
+# End time: 16:02:12 on May 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/mix_columns.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:02:12 on May 28,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/mix_columns.sv 
+# -- Compiling module mix_columns_one_column
+# -- Compiling module mix_columns
+# 
+# Top level modules:
+# 	mix_columns
+# End time: 16:02:12 on May 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/key_expansion.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:02:12 on May 28,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/key_expansion.sv 
+# -- Compiling module keyexpansion
+# 
+# Top level modules:
+# 	keyexpansion
+# End time: 16:02:12 on May 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/aes128_baseline.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:02:12 on May 28,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/aes128_baseline.sv 
+# -- Compiling module aes128_baseline
+# 
+# Top level modules:
+# 	aes128_baseline
+# End time: 16:02:12 on May 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/aes_round.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:02:12 on May 28,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/aes_round.sv 
+# -- Compiling module aes_round
+# 
+# Top level modules:
+# 	aes_round
+# End time: 16:02:12 on May 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/aes_core.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:02:12 on May 28,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/aes_core.sv 
+# -- Compiling module aes_core
+# 
+# Top level modules:
+# 	aes_core
+# End time: 16:02:12 on May 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/add_roundkey.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:02:12 on May 28,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/baseline/add_roundkey.sv 
+# -- Compiling module add_roundkey
+# 
+# Top level modules:
+# 	add_roundkey
+# End time: 16:02:12 on May 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+C:/Users/chinw/OneDrive\ -\ moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/baseline/../../tb/Baseline {C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/baseline/../../tb/Baseline/tb_sub_bytes.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:02:12 on May 28,2026
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/baseline/../../tb/Baseline" C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/baseline/../../tb/Baseline/tb_sub_bytes.sv 
+# -- Compiling module tb_sub_bytes
+# 
+# Top level modules:
+# 	tb_sub_bytes
+# End time: 16:02:12 on May 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  tb_sub_bytes
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" tb_sub_bytes 
+# Start time: 16:02:12 on May 28,2026
+# //  ModelSim - Intel FPGA Edition 10.5b Oct  5 2016
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim - Intel FPGA Edition and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.tb_sub_bytes
+# Loading work.sub_bytes
+# Loading work.sbox
+# 
+# add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: chinw  Hostname: LAPTOP-OGPLI5KQ  ProcessID: 23052
+#           Attempting to use alternate WLF file "./wlftb3irjf".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftb3irjf
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ==============================================
+# AES SubBytes Unit Test Started
+# ==============================================
+# ----------------------------------------------
+# TEST 1: all_zero_bytes
+# Operation = SubBytes
+# STATE_IN  = 00000000000000000000000000000000
+# EXPECTED  = 63636363636363636363636363636363
+# GOT       = 63636363636363636363636363636363
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 2: all_ff_bytes
+# Operation = SubBytes
+# STATE_IN  = ffffffffffffffffffffffffffffffff
+# EXPECTED  = 16161616161616161616161616161616
+# GOT       = 16161616161616161616161616161616
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 3: ascending_00_to_0f
+# Operation = SubBytes
+# STATE_IN  = 000102030405060708090a0b0c0d0e0f
+# EXPECTED  = 637c777bf26b6fc53001672bfed7ab76
+# GOT       = 637c777bf26b6fc53001672bfed7ab76
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 4: descending_0f_to_00
+# Operation = SubBytes
+# STATE_IN  = 0f0e0d0c0b0a09080706050403020100
+# EXPECTED  = 76abd7fe2b670130c56f6bf27b777c63
+# GOT       = 76abd7fe2b670130c56f6bf27b777c63
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 5: mixed_pattern_1
+# Operation = SubBytes
+# STATE_IN  = 0123456789abcdeffedcba9876543210
+# EXPECTED  = 7c266e85a762bddfbb86f446382023ca
+# GOT       = 7c266e85a762bddfbb86f446382023ca
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 6: nist_plaintext_block_1
+# Operation = SubBytes
+# STATE_IN  = 6bc1bee22e409f96e93d7e117393172a
+# EXPECTED  = 7f78ae983109db901e27f3828fdcf0e5
+# GOT       = 7f78ae983109db901e27f3828fdcf0e5
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 7: fips197_round1_start_to_subbytes
+# Operation = SubBytes
+# STATE_IN  = 193de3bea0f4e22b9ac68d2ae9f84808
+# EXPECTED  = d42711aee0bf98f1b8b45de51e415230
+# GOT       = d42711aee0bf98f1b8b45de51e415230
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 8: fips197_round2_start_to_subbytes
+# Operation = SubBytes
+# STATE_IN  = a49c7ff2689f352b6b5bea43026a5049
+# EXPECTED  = 49ded28945db96f17f39871a7702533b
+# GOT       = 49ded28945db96f17f39871a7702533b
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 9: fips197_round3_start_to_subbytes
+# Operation = SubBytes
+# STATE_IN  = aa8f5f0361dde3ef82d24ad26832469a
+# EXPECTED  = ac73cf7befc111df13b5d6b545235ab8
+# GOT       = ac73cf7befc111df13b5d6b545235ab8
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 10: fips197_round4_start_to_subbytes
+# Operation = SubBytes
+# STATE_IN  = 486c4eee671d9d0d4de3b138d65f58e7
+# EXPECTED  = 52502f2885a45ed7e311c807f6cf6a94
+# GOT       = 52502f2885a45ed7e311c807f6cf6a94
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 11: fips197_round5_start_to_subbytes
+# Operation = SubBytes
+# STATE_IN  = e0927fe8c86363c0d9b1355085b8be01
+# EXPECTED  = e14fd29be8fbfbba35c89653976cae7c
+# GOT       = e14fd29be8fbfbba35c89653976cae7c
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 12: fips197_round6_start_to_subbytes
+# Operation = SubBytes
+# STATE_IN  = f1006f55c1924cef7cc88b325db5d50c
+# EXPECTED  = a163a8fc784f29df10e83d234cd503fe
+# GOT       = a163a8fc784f29df10e83d234cd503fe
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 13: fips197_round7_start_to_subbytes
+# Operation = SubBytes
+# STATE_IN  = 260e2e173d41b77de86472a9fdd28b25
+# EXPECTED  = f7ab31f02783a9ff9b4340d354b53d3f
+# GOT       = f7ab31f02783a9ff9b4340d354b53d3f
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 14: fips197_round8_start_to_subbytes
+# Operation = SubBytes
+# STATE_IN  = 5a4142b11949dc1fa3e019657a8c040c
+# EXPECTED  = be832cc8d43b86c00ae1d44dda64f2fe
+# GOT       = be832cc8d43b86c00ae1d44dda64f2fe
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 15: fips197_round9_start_to_subbytes
+# Operation = SubBytes
+# STATE_IN  = ea835cf00445332d655d98ad8596b0c5
+# EXPECTED  = 87ec4a8cf26ec3d84d4c46959790e7a6
+# GOT       = 87ec4a8cf26ec3d84d4c46959790e7a6
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 16: fips197_round10_start_to_subbytes
+# Operation = SubBytes
+# STATE_IN  = eb40f21e592e38848ba113e71bc342d2
+# EXPECTED  = e9098972cb31075f3d327d94af2e2cb5
+# GOT       = e9098972cb31075f3d327d94af2e2cb5
+# STATUS    = PASS
+# ==============================================
+# AES SubBytes Unit Test Summary
+# Total tests : 16
+# Passed      : 16
+# Failed      : 0
+# ==============================================
+# RESULT: ALL SUBBYTES TESTS PASSED
+# ** Note: $stop    : C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/baseline/../../tb/Baseline/tb_sub_bytes.sv(136)
+#    Time: 16 ns  Iteration: 0  Instance: /tb_sub_bytes
+# Break in Module tb_sub_bytes at C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/baseline/../../tb/Baseline/tb_sub_bytes.sv line 136
+# End time: 16:05:10 on May 28,2026, Elapsed time: 0:02:58
+# Errors: 0, Warnings: 2

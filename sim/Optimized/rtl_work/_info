@@ -1,0 +1,160 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/sim/Optimized
+vaes128_optimized
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1780017435
+!i10b 1
+!s100 G=ani>[F54Nn1CbW7ne2g2
+IMU`k`NH=jNO7zBV5GEceg1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 aes128_optimized_sv_unit
+S1
+R0
+Z4 w1779424233
+8C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/aes128_optimized.sv
+FC:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/aes128_optimized.sv
+L0 30
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1780017435.000000
+!s107 C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/aes128_optimized.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized|C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/aes128_optimized.sv|
+!i113 1
+Z7 o-sv -work work
+Z8 !s92 -sv -work work {+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized}
+Z9 tCvgOpt 0
+vaes_core
+R1
+R2
+!i10b 1
+!s100 GKBh9gGn2J_Tl9ANMoHBK2
+I`]E1Xjo5;b;@N@UP:30282
+R3
+!s105 aes_core_sv_unit
+S1
+R0
+R4
+8C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/aes_core.sv
+FC:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/aes_core.sv
+L0 76
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/aes_core.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized|C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/aes_core.sv|
+!i113 1
+R7
+R8
+R9
+vmix_columns_one_column
+R1
+Z10 !s110 1780017434
+!i10b 1
+!s100 UBn[Q;fFCWLzEme6=R]j]3
+I1;hU^FjFoOkNDGXhADjPL3
+R3
+!s105 mix_columns_sv_unit
+S1
+R0
+R4
+8C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/mix_columns.sv
+FC:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/mix_columns.sv
+L0 57
+R5
+r1
+!s85 0
+31
+Z11 !s108 1780017434.000000
+!s107 C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/mix_columns.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized|C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/mix_columns.sv|
+!i113 1
+R7
+R8
+R9
+vsbox
+R1
+R10
+!i10b 1
+!s100 I:7`93i8`^h46U<6Q?c5o2
+IGWWFG>8YLZOIEgOe=YI`10
+R3
+!s105 sbox_sv_unit
+S1
+R0
+R4
+8C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/sbox.sv
+FC:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/sbox.sv
+L0 47
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/sbox.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized|C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/sbox.sv|
+!i113 1
+R7
+R8
+R9
+vshift_rows
+R1
+R10
+!i10b 1
+!s100 D4_G<`SQ5LD6;hUY60V]>0
+IoQV2;nWbBhi<Wf<^mO^LI2
+R3
+!s105 shift_rows_sv_unit
+S1
+R0
+w1779424234
+8C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/shift_rows.sv
+FC:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/shift_rows.sv
+L0 59
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/shift_rows.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized|C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/rtl/optimized/shift_rows.sv|
+!i113 1
+R7
+R8
+R9
+vtb_aes128_encrypt
+R1
+!s110 1780017436
+!i10b 1
+!s100 Xe88>RC_gEQT9QCaHCEH33
+I?ikK=GH>JLbC2E9`Y[eR13
+R3
+!s105 tb_aes128_encrypt_sv_unit
+S1
+R0
+w1779870014
+8C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized/tb_aes128_encrypt.sv
+FC:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized/tb_aes128_encrypt.sv
+L0 41
+R5
+r1
+!s85 0
+31
+!s108 1780017436.000000
+!s107 C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized/tb_aes128_encrypt.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized|C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized/tb_aes128_encrypt.sv|
+!i113 1
+R7
+!s92 -sv -work work {+incdir+C:/Users/chinw/OneDrive - moe-dl.edu.my/Documents/GitHub/ECE4063_GIthub/aes128_project_G/quartus/optimized/../../tb/Optimized}
+R9
