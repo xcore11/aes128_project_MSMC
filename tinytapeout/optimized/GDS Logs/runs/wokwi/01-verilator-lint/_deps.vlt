@@ -1,0 +1,5 @@
+`verilator_config
+lint_off -rule DECLFILENAME
+lint_off -rule EOFNEWLINE
+lint_off -rule UNDRIVEN -file "/home/runner/work/ttsky-aes128-optimized/ttsky-aes128-optimized/runs/wokwi/tmp/6b77d786321c46a49f1ff3c08c8dc80a.bb.v"
+lint_off -rule UNUSEDSIGNAL -file "/home/runner/work/ttsky-aes128-optimized/ttsky-aes128-optimized/runs/wokwi/tmp/6b77d786321c46a49f1ff3c08c8dc80a.bb.v"
