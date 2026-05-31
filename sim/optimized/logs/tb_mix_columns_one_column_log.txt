@@ -1,0 +1,170 @@
+# MixColumns One-Column Unit Test Started
+# ==============================================
+# ----------------------------------------------
+# TEST 1: project_example_col0
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 12c994a8
+# EXPECTED  = 58940b20
+# GOT       = 58940b20
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 2: project_example_col1
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 25dade75
+# EXPECTED  = 9486c781
+# GOT       = 9486c781
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 3: project_example_col2
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = c15f005f
+# EXPECTED  = 27207fb9
+# GOT       = 27207fb9
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 4: project_example_col3
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 3f8e442c
+# EXPECTED  = 9fd84dd3
+# GOT       = 9fd84dd3
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 5: fips_round1_column0
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = d4bf5d30
+# EXPECTED  = 046681e5
+# GOT       = 046681e5
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 6: fips_round1_column1
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = e0b452ae
+# EXPECTED  = e0cb199a
+# GOT       = e0cb199a
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 7: fips_round1_column2
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = b84111f1
+# EXPECTED  = 48f8d37a
+# GOT       = 48f8d37a
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 8: fips_round1_column3
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 1e2798e5
+# EXPECTED  = 2806264c
+# GOT       = 2806264c
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 9: zero_column
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 00000000
+# EXPECTED  = 00000000
+# GOT       = 00000000
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 10: all_ones_column
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = ffffffff
+# EXPECTED  = ffffffff
+# GOT       = ffffffff
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 11: ascending_00_03
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 00010203
+# EXPECTED  = 02070005
+# GOT       = 02070005
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 12: descending_03_00
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 03020100
+# EXPECTED  = 01040306
+# GOT       = 01040306
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 13: single_bit_msb_byte
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 01000000
+# EXPECTED  = 02010103
+# GOT       = 02010103
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 14: single_bit_lsb_byte
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 00000001
+# EXPECTED  = 01010302
+# GOT       = 01010302
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 15: gf_xtime_stress_pattern
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 57ae47e8
+# EXPECTED  = e83154db
+# GOT       = e83154db
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 16: nist_plaintext_column0
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 6bc1bee2
+# EXPECTED  = d2c9f01d
+# GOT       = d2c9f01d
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 17: nist_plaintext_column1
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 2e409f96
+# EXPECTED  = 9582ea9a
+# GOT       = 9582ea9a
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 18: nist_plaintext_column2
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = e93d7e11
+# EXPECTED  = e1001b41
+# GOT       = e1001b41
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 19: nist_plaintext_column3
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 7393172a
+# EXPECTED  = 755db045
+# GOT       = 755db045
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 20: mixed_pattern_1
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 01234567
+# EXPECTED  = 45ef01ab
+# GOT       = 45ef01ab
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 21: mixed_pattern_2
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 89abcdef
+# EXPECTED  = cd678923
+# GOT       = cd678923
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 22: mixed_pattern_3
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = fedcba98
+# EXPECTED  = ba10fe54
+# GOT       = ba10fe54
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 23: mixed_pattern_4
+# Operation = MixColumns One 32-bit Column
+# COL_IN    = 76543210
+# EXPECTED  = 329876dc
+# GOT       = 329876dc
+# STATUS    = PASS
+# ==============================================
+# MixColumns One-Column Summary
+# Total tests : 23
+# Passed      : 23
+# Failed      : 0
+# ==============================================
+# RESULT: MIXCOLUMNS ONE-COLUMN UNIT TEST PASSED

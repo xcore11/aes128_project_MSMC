@@ -1,0 +1,90 @@
+# ==============================================
+# AES-128 KeyExpansion Unit Test Started
+# ==============================================
+# ----------------------------------------------
+# TEST 1: K0_to_K1
+# Operation = AES-128 one-round key expansion
+# RCON      = 01
+# KEY_IN    = 2b7e151628aed2a6abf7158809cf4f3c
+# EXPECTED  = a0fafe1788542cb123a339392a6c7605
+# GOT       = a0fafe1788542cb123a339392a6c7605
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 2: K1_to_K2
+# Operation = AES-128 one-round key expansion
+# RCON      = 02
+# KEY_IN    = a0fafe1788542cb123a339392a6c7605
+# EXPECTED  = f2c295f27a96b9435935807a7359f67f
+# GOT       = f2c295f27a96b9435935807a7359f67f
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 3: K2_to_K3
+# Operation = AES-128 one-round key expansion
+# RCON      = 04
+# KEY_IN    = f2c295f27a96b9435935807a7359f67f
+# EXPECTED  = 3d80477d4716fe3e1e237e446d7a883b
+# GOT       = 3d80477d4716fe3e1e237e446d7a883b
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 4: K3_to_K4
+# Operation = AES-128 one-round key expansion
+# RCON      = 08
+# KEY_IN    = 3d80477d4716fe3e1e237e446d7a883b
+# EXPECTED  = ef44a541a8525b7fb671253bdb0bad00
+# GOT       = ef44a541a8525b7fb671253bdb0bad00
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 5: K4_to_K5
+# Operation = AES-128 one-round key expansion
+# RCON      = 10
+# KEY_IN    = ef44a541a8525b7fb671253bdb0bad00
+# EXPECTED  = d4d1c6f87c839d87caf2b8bc11f915bc
+# GOT       = d4d1c6f87c839d87caf2b8bc11f915bc
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 6: K5_to_K6
+# Operation = AES-128 one-round key expansion
+# RCON      = 20
+# KEY_IN    = d4d1c6f87c839d87caf2b8bc11f915bc
+# EXPECTED  = 6d88a37a110b3efddbf98641ca0093fd
+# GOT       = 6d88a37a110b3efddbf98641ca0093fd
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 7: K6_to_K7
+# Operation = AES-128 one-round key expansion
+# RCON      = 40
+# KEY_IN    = 6d88a37a110b3efddbf98641ca0093fd
+# EXPECTED  = 4e54f70e5f5fc9f384a64fb24ea6dc4f
+# GOT       = 4e54f70e5f5fc9f384a64fb24ea6dc4f
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 8: K7_to_K8
+# Operation = AES-128 one-round key expansion
+# RCON      = 80
+# KEY_IN    = 4e54f70e5f5fc9f384a64fb24ea6dc4f
+# EXPECTED  = ead27321b58dbad2312bf5607f8d292f
+# GOT       = ead27321b58dbad2312bf5607f8d292f
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 9: K8_to_K9
+# Operation = AES-128 one-round key expansion
+# RCON      = 1b
+# KEY_IN    = ead27321b58dbad2312bf5607f8d292f
+# EXPECTED  = ac7766f319fadc2128d12941575c006e
+# GOT       = ac7766f319fadc2128d12941575c006e
+# STATUS    = PASS
+# ----------------------------------------------
+# TEST 10: K9_to_K10
+# Operation = AES-128 one-round key expansion
+# RCON      = 36
+# KEY_IN    = ac7766f319fadc2128d12941575c006e
+# EXPECTED  = d014f9a8c9ee2589e13f0cc8b6630ca6
+# GOT       = d014f9a8c9ee2589e13f0cc8b6630ca6
+# STATUS    = PASS
+# ==============================================
+# KeyExpansion Summary
+# Total tests : 10
+# Passed      : 10
+# Failed      : 0
+# ==============================================
+# RESULT: KEYEXPANSION UNIT TEST PASSED
